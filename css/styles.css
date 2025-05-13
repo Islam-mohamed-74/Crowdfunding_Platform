@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+    @font-face {
+        font-family: roundedArial;
+        src: url(../assets/fonts/VarelaRound-Regular.ttf);
+    }
+
+    @font-face {
+        font-family: somar;
+        src: url(../assets/fonts/Somar-Light.otf),url(../assets/fonts/Somar-SemiBold.otf);
+    }
+
+
+body{
+    font-family: roundedArial,somar,sans-serif; 
+}
+
+/* change primary color for bootstrap  */
+
+:root{
+    --bs-primary: #822A21; 
+}
+
+.btn-primary {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+  }
+
+  .text-primary {
+    color: var(--bs-primary) !important;
+  }
+
+
+/* 
+
+#822A21 main color
+
+#309698 secondary color
+
+#144768 third color
+
+*/
