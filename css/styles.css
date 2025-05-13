@@ -43,3 +43,170 @@ body {
 #144768 third color
 
 */
+
+/* <!-- ---------------- statistics 5 ---------------- --- --> */
+
+.statistics {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.788),
+      rgba(14, 5, 54, 0.897)
+    ),
+    url(https://www.tasharuky.com/images/statistics.jpg);
+  font-family: roundedArial, somar, sans-serif;
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.statistics .container .counters {
+  padding: 40px;
+}
+.statistics .container .counters .counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 20px 0;
+  transition: all cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s;
+}
+
+.statistics .container .counters .counter img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 25px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  filter: invert(100%);
+  transition: all cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s;
+}
+
+.statistics .container .counters .counter span {
+  font-size: 24px;
+  /* line-height: 50px; */
+  font-weight: bold;
+  transition: all cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s;
+}
+
+.statistics .container .counters .counter p {
+  font-size: 24px;
+  transition: all cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s;
+}
+
+.statistics .container .counters .counter:hover {
+  transform: scale(1.2);
+  transition: all cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s;
+  cursor: pointer;
+}
+
+/* <!-- ---------------- لماذا تشاركي   ؟ 6 ---------------- --- --> */
+
+.why-tasharuky {
+  background-color: #f3f4f5;
+  position: relative;
+}
+
+.wave-why-tasharuky {
+}
+.why-tasharuky .container .section-head h2 {
+  font-size: 40px;
+  font-weight: 900;
+}
+.why-tasharuky .container .counters {
+  padding: 40px;
+}
+
+.why-tasharuky .container .counters .counter {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.why-tasharuky .container .counters .counter img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 25px;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.why-tasharuky .container .counters .counter h3 {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  transition: all cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s;
+}
+.why-tasharuky .container .counters .counter:hover {
+  transform: scale(1.1);
+  transition: all cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.5s;
+  cursor: pointer;
+  h3 {
+    color: var(--bs-primary) !important;
+  }
+}
+
+/* ----------------------------- شركائنا --------------------------- */
+
+.partners .card {
+  border: none;
+  text-align: center;
+}
+.partners .card-img-top {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.partners {
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.77); /* لون خلفية لتظهر بوضوح */
+    /* border-radius: 50%; */
+    width: 50px;
+    height: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+  @media (min-width: 767px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 4%;
+    }
+  }
+}
+
+/* -------------------- footer ------------------ */
+
+.footer {
+  background-color: #202027;
+  font-family: roundedArial, somar, sans-serif;
+  color: #bcbcbc;
+
+  p {
+    font-size: 15px;
+  }
+  a {
+    color: #bcbcbc;
+    text-decoration: none;
+    font-size: 25px;
+  }
+  .subscribe {
+    input {
+      border: none;
+      background-color: #202027;
+      border-bottom: 1px solid #bcbcbc;
+      color: #bcbcbc;
+      font-size: 20px;
+      width: 100%;
+    }
+    button {
+      border: none;
+      background-color: #202027;
+      color: #bcbcbc;
+      font-size: 15px;
+    }
+  }
+}
