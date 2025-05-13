@@ -4,18 +4,42 @@
   box-sizing: border-box;
 }
 
-/* <!-- ---------------- header 1 ---------------- --> */
+@font-face {
+  font-family: roundedArial;
+  src: url(../assets/fonts/VarelaRound-Regular.ttf);
+}
 
-/* <!-- ---------------- Home 2 ---------------- --- --> */
+@font-face {
+  font-family: somar;
+  src: url(../assets/fonts/Somar-Light.otf),
+    url(../assets/fonts/Somar-SemiBold.otf);
+}
 
-/* <!-- ------------------------- a Campaign 3 ------------------- --> */
+body {
+  font-family: roundedArial, somar, sans-serif;
+}
 
-/* <!-- ---------------- مراحل عمل تشاركي   4 ---------------- --- --> */
+/* change primary color for bootstrap  */
 
-/* <!-- ---------------- statistics 5 ---------------- --- --> */
+:root {
+  --bs-primary: #822a21;
+}
 
-/* <!-- ---------------- لماذا تشاركي   ؟ 6 ---------------- --- --> */
+.btn-primary {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+}
 
-/* <!-- ---------------- شركاؤونا   7 ---------------- --- --> */
+.text-primary {
+  color: var(--bs-primary) !important;
+}
 
-/* <!-- ---------------- footer 8 ---------------- --- --> */
+/* 
+
+#822A21 main color
+
+#309698 secondary color
+
+#144768 third color
+
+*/
