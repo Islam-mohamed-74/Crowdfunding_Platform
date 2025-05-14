@@ -85,7 +85,7 @@ body {
 }
 .hero-section .carousel-indicators {
   z-index: 100;
-  color: red;
+  color: var(--bs-primary);
 }
 .hero-section .carousel-indicators [data-bs-target] {
   display: block;
