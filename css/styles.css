@@ -232,12 +232,7 @@ body {
   height: 50px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
-@media (min-width: 767px) {
-  .partners .carousel-control-prev,
-  .partners .carousel-control-next {
-    width: 4%;
-  }
-}
+
 
 /* ============ الفوتر ============ */
 .footer {
@@ -268,82 +263,8 @@ body {
   font-size: 15px;
 }
 
-/* ============ ميديا كويري ============ */
-@media (max-width: 576px) {
-  .navbar-brand img {
-    width: 120px;
-  }
-  .register-login a {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    font-size: 22px !important;
-  }
 
-  .video-workmap iframe {
-    height: 160px;
-  }
-}
-@media (max-width: 768px) {
-  .col-carousel {
-    display: none;
-  }
-}
-@media screen and (min-width: 992px) and (max-width: 1100px) {
-  .navbar-brand img {
-    width: 170px;
-  }
-  .navbar-nav .nav-link,
-  .register-login a {
-    font-size: 22px !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-@font-face {
-  font-family: roundedArial;
-  src: url(../assets/fonts/VarelaRound-Regular.ttf);
-}
-
-@font-face {
-  font-family: somar;
-  src: url(../assets/fonts/Somar-Light.otf),
-    url(../assets/fonts/Somar-SemiBold.otf);
-}
-
-body {
-  font-family: roundedArial, somar, sans-serif;
-}
-
-/* change primary color for bootstrap  */
-
-:root {
-  --bs-primary: #822a21;
-}
-
-.btn-primary {
-  background-color: var(--bs-primary) !important;
-  border-color: var(--bs-primary) !important;
-}
-
-.text-primary {
-  color: var(--bs-primary) !important;
-}
-
-/* 
-
-#822A21 main color
-
-#309698 secondary color
-
-#144768 third color
-
-*/
+  
 
 /* <!-- ---------------- statistics 5 ---------------- --- --> */
 
@@ -523,3 +444,45 @@ body {
     text-decoration: none;
   }
 }
+
+
+
+
+/* ============ ميديا كويري ============ */
+@media (max-width: 576px) {
+  .navbar-brand img {
+    width: 120px;
+  }
+  .register-login a {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: 22px !important;
+  }
+
+  .workmap-iframe {
+    height: 160px;
+  }
+}
+@media (max-width: 768px) {
+  .col-carousel {
+    display: none;
+  }
+}
+@media (min-width: 767px) {
+  .partners .carousel-control-prev,
+  .partners .carousel-control-next {
+    width: 4%;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1100px) {
+  .navbar-brand img {
+    width: 170px;
+  }
+  .navbar-nav .nav-link,
+  .register-login a {
+    font-size: 22px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
