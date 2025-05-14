@@ -323,7 +323,9 @@
               type="email"
               placeholder="البريد الالكتروني"
             />
-            <button class="btn btn-primary fw-bold fs-5">اشترك</button>
+            <button id="signup-form" class="btn btn-primary fw-bold fs-5">
+              اشترك
+            </button>
           </div>
           <ul>
             <li class="d-flex gap-4 mx-2 my-3">
@@ -340,5 +342,10 @@
         <p dir="rtl" class="m-0">© جميع الحقوق محفوظة منصة تشاركي 2025</p>
       </div>
     </div>
+    <script>
+      document.querySelector("#signup-form").addEventListener("click", () => {
+        window.location.href = "./signup.html";
+      });
+    </script>
   </body>
 </html>

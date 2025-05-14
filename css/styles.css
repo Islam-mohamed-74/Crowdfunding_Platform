@@ -108,8 +108,6 @@ body {
   position: relative;
 }
 
-.wave-why-tasharuky {
-}
 .why-tasharuky .container .section-head h2 {
   font-size: 40px;
   font-weight: 900;
@@ -208,5 +206,19 @@ body {
       color: #bcbcbc;
       font-size: 15px;
     }
+  }
+}
+
+/* ---------------------------- signup ------------------- */
+
+.signup-main {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(3, 34, 100, 0.838),
+      rgba(58, 5, 5, 0.838)
+    ),
+    url(https://www.tasharuky.com/images/signup.jpg);
+  a {
+    text-decoration: none;
   }
 }
