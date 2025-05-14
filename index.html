@@ -1,82 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Tasharuky Crowdfunding Platform" />
-    <link
-      rel="shortcut icon"
-      href="./assets/images/favicon.ico"
-      type="image/x-icon"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/styles.css" />
-
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <title>Tasharuky</title>
+    <title>tharuky</title>
   </head>
-
-  <body dir="rtl">
+  <body>
     <!-- ---------------- start header  ---------------- -->
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid justify-content-start">
-        <a class="navbar-brand" href="#">
-          <img
-            src="./assets/images/logo.webp"
-            alt="Tasharuky-logo"
-            width="250"
-          />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse me-3" id="navbarSupportedContent">
-          <form class="d-flex" role="search">
-            <button class="btn" type="submit">
-              <i class="fa-solid fa-magnifying-glass text-primary"></i>
+    <nav class="navbar navbar-expand-lg  border-bottom">
+        <div class="container-fluid justify-content-evenly justify-content-sm-between ">
+            <a class="navbar-brand" href="#"> <img src="./assets/images/logo.webp" alt="Tasharuky-logo"> </a>
+
+            <div class="collapse navbar-collapse me-3" id="navbarSupportedContent">
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active fs-4 fw-bold text-primary" aria-current="page" href="#">الصفحة
+                            الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4" href="#">حملاتنا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4" href="#">قطاعات المشاريع</a>
+                    </li>
+                    <form class="d-flex " role="search">
+                        <input class="form-control py-0" type="search" placeholder="بحث ..." aria-label="Search">
+                        <button class="btn" type="submit"><i
+                                class="fa-solid fa-magnifying-glass text-primary"></i></button>
+                    </form>
+                </ul>
+            </div>
+            <div class="register-login">
+                <a href="#" class="btn fs-4 fw-semibold border rounded-pill"> إنشاء حساب </a>
+                <a href="#" class="btn btn-primary fs-4 fw-semibold border rounded-pill ">تسجيل دخول</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-          </form>
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a
-                class="nav-link active fs-4 fw-bold text-primary"
-                aria-current="page"
-                href="#"
-                >الصفحة الرئيسية</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fs-4" href="#">حملاتنا</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fs-4" href="#">قطاعات المشاريع</a>
-            </li>
-          </ul>
         </div>
-      </div>
     </nav>
 
     <!-- ---------------- end header  ---------------- -->
 
-    <!-- ---------------- Home 2 ---------------- --- -->
+    <!-- ---------------- start hero section ---------------- --- -->
+
+
+    <section class="hero-section mt-5">
+        <div class="container">
+            <div class="row row-gap-4 align-items-center justify-content-center">
+                <div class="col-9 col-md-5 order-1 order-md-0">
+                    <div class="content-hero text-center">
+                        <h1 class="fw-bold"> نبني أواصر الثقة بين الممولين وأصحاب المشاريع </h1>
+                        <p>عبر دعم مانحينا سننقذ مجتمعات مهمشة وننهض بأجيال كاملة، لنكون أولى بوابات الخير المسخرة نحو
+                            تمويل مشروعات
+                        </p>
+                        <h4 class="fw-bold">هل انت مستعد</h4>
+                        <div class="explore">
+                            <a href="#" class="btn start-journey px-3 fs-4 fw-semibold border rounded-pill"> ابدأ
+                                حملتك</a>
+                            <a href="#"
+                                class="btn btn-primary btn-campaign px-3 fs-4 fw-semibold border rounded-pill ">اكتشف
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-7 order-0 order-md-1 ">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                class="" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                aria-label="Slide 2" class=""></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                aria-label="Slide 3" class="active" aria-current="true"></button>
+                        </div>
+                        <div class="carousel-inner ">
+                            <div class="carousel-item position-relative">
+                                <div class="overlay "></div>
+                                <img src="./assets/images/slider-1.webp" class="d-block" alt="slider" width="500"
+                                    height="400">
+                            </div>
+                            <div class="carousel-item position-relative">
+                                <div class="overlay"></div>
+                                <img src="./assets/images/slider-2.webp" class="d-block " alt="slider" width="500"
+                                    height="400">
+                            </div>
+                            <div class="carousel-item position-relative active">
+                                <div class="overlay"></div>
+                                <img src="./assets/images/slider-3.webp" class="d-block " alt="slider" width="500"
+                                    height="400">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ---------------- end hero section ---------------- --- -->
+
 
     <!-- ------------------------- a Campaign 3 ------------------- -->
+
+    <section class="section-campaign my-5">
+        <div class="container ">
+            <div class="head-section text-center mb-5">
+                <h2 class="fw-bold"> حملات المشاريع</h2>
+                <h4 class="fw-bold"> دعمك يبنى المجتمعات </h4>
+                <div class="line-campaign"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card border-0 rounded-2 shadow-lg rounded">
+                        <div class="img-card bg-secondary position-relative rounded-top">
+                            <img src="./assets/images/card-1.webp" class="w-100  rounded-top">
+                            <span class="campaign_card_overlay campaign-heart position-absolute">
+                                <i class="fa-regular fa-heart text-primary fs-4"></i>
+                            </span>
+                            <span
+                                class=" campaign_card_overlay position-absolute bottom-0 start-0 px-3 py-1 bg-primary text-white fs-4 rounded">
+                                التعليم والتدريب</span>
+
+                        </div>
+                        <div class="card-body text-center">
+
+                            <h4 class="product__title text-primary">جمعية النور لخدمة القرآن الكريم </h4>
+                            <h3 class="text-secondary fw-bold">توفير المصحف الشريف للمحتاجين في أفريقيا</h3>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="px-4 border-start mt-3">
+                                    <p class="m-0">200</p>
+                                    <h5>متبرعين</h5>
+                                </div>
+                                <div class="country-flag"> <span class="fs-5"> فلسطين </span> <img
+                                        src="./assets/images/ps.svg" width="80" alt="فلسطين"> </div>
+                            </div>
+                            <div class="process-campaign my-4">
+                                <div class="percent text-primary text-start">25%</div>
+                                <div class="line-process ">
+                                    <div class="process rounded-start-2"></div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div class="px-2 border-start mt-3">
+                                    <h5>قيمة المشروع</h5>
+                                    <p class="m-0 fw-semibold">50000</p>
+                                    <span class="fs-6 fw-semibold">$</span>
+                                </div>
+                                <div class="px-2 border-start mt-3">
+                                    <h5>الدعم</h5>
+                                    <p class="m-0 fw-semibold">13600</p>
+                                    <span class="fs-6 fw-semibold">$</span>
+                                </div>
+                                <div class="px-2  mt-3">
+                                    <h5>المتبقى</h5>
+                                    <p class="m-0 fw-semibold">36400</p>
+                                    <span class="fs-6 fw-semibold">$</span>
+                                </div>
+                            </div>
+                            <a href="#"
+                                class="btn bg-primary btn-campaign my-4 px-4 rounded-pill text-light fs-4 fw-semibold">
+                                ادعم
+                                الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="more-projects d-flex justify-content-center">
+
+                <a href="#" class="btn border-primary text-primary  my-4 px-4 rounded-pill text-light fs-4 fw-semibold">
+                    المزيد من المشاريع
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ------------------------- a Campaign 3 ------------------- -->
+
+
+
+    <!-- ---------------- مراحل عمل تشاركي   4 ---------------- --- -->
+
+    <section class="section-steps my-5">
+        <div class="container">
+            <div class="row row-gap-5 align-items-center justify-content-center">
+                <div class="col-7 col-md-6">
+                    <div class="content-steps p-5">
+                        <h2 class="fs-1 fw-bolder"> كيف تعمل منصة تشاركي</h2>
+                        <p class="fs-3">
+                            لأن مساهمتك تنهض بالمجتمعات توفر منصة تشاركي للتمويل الجماعي أساليب وطرق ملائمة تسهل لك دعم
+                            المشاريع
+                            الخيرية والمبادرات الإنسانية من الإغاثة في حالات الكوارث إلى التعليم والاستدامة، كما تقدم
+                            تشاركي رحلة
+                            تمويل سَلسة تبدأ بخطوات معدودة تقوم من خلالها الجمعيات بطلب التمويل.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-7 col-md-6">
+                    <div class="rounded">
+
+                        <iframe class="rounded-5" width="514" height="350"
+                            src="https://www.youtube.com/embed/8VGzZlXoKW0"
+                            title="كيف تعمل منصة تشاركي للتمويل الجماعي؟ #crowdfunding" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="image-steps">
+                        <img src="./assets/images/workmap_ar.svg" alt="workmap_ar" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ---------------- مراحل عمل تشاركي   4 ---------------- --- -->
 
@@ -264,81 +408,5 @@
       </div>
     </div>
     <!-- ---------------- footer 8 ---------------- --- -->
-
-    <div class="footer text-center">
-      <div class="w-100 row justify-content-center pt-5 px-4 px-md-2 mx-auto">
-        <div class="col-12 col-md-4 col-lg-3">
-          <div class="company d-flex justify-content-start my-3">
-            <img
-              class="w-75"
-              src="./assets/images/logo.webp"
-              alt="Tasharuky-logo"
-            />
-          </div>
-          <p class="mt-3">
-            تشاركي.. منصة رقمية متخصصة في التمويل الجماعي، صُممت لتكون بيئة آمنة
-            لتقديم حلول ذكية باستخدام أحدث تقنيات التكنولوجيا المالية، وبوابة
-            تجمع مؤسسات العمل الإنساني الموثوقة مع الممولين؛ تتميز تشاركي في
-            تطبيق مبدأ المشاركة كونها تعمل على نطاق دولي وتوفر للداعمين خيارات
-            متعددة في عرض مشاريع المؤسسات في مكان واحد، ومتوافقة مع مبادئ
-            الشريعة الإسلامية.
-          </p>
-        </div>
-        <div class="col-12 col-md-4 col-lg-1">
-          <ul
-            class="list-unstyled d-flex justify-content-center align-items-start flex-column"
-          >
-            <li><a href="#">الرئيسية</a></li>
-            <li><a href="#">من نحن</a></li>
-            <li><a href="#">الخدمات</a></li>
-            <li><a href="#">شركاؤنا</a></li>
-          </ul>
-        </div>
-        <div class="col-12 col-md-4 col-lg-2">
-          <ul
-            class="list-unstyled d-flex justify-content-center align-items-start flex-column"
-          >
-            <li><a href="#">كيف تعمل تشاركي</a></li>
-            <li><a href="#">تقيم مؤسسات والمشاريع </a></li>
-            <li><a href="#">سياسة استرداد الاموال</a></li>
-            <li><a href="#">سياسة الخصوصية</a></li>
-          </ul>
-        </div>
-        <div class="col-12 col-md-4 col-lg-2">
-          <ul
-            class="list-unstyled d-flex justify-content-center align-items-start flex-column"
-          >
-            <li><a href="#"> اكتشف</a></li>
-            <li><a href="#"> المقالات </a></li>
-            <li><a href="#">اسئله شائعه </a></li>
-            <li><a href="#"> الانشطه والاخبار</a></li>
-            <li><a href="#"> اتصل بنا</a></li>
-          </ul>
-        </div>
-        <div class="last-section col-12 col-md-4 col-lg-4">
-          <p class="label fw-bold fs-3">اشترك في نشرتنا البريدية</p>
-          <div class="subscripe d-flex gap-4">
-            <input
-              class="form-control me-2 w-50"
-              type="email"
-              placeholder="البريد الالكتروني"
-            />
-            <button class="btn btn-primary fw-bold fs-5">اشترك</button>
-          </div>
-          <ul>
-            <li class="d-flex gap-4 mx-2 my-3">
-              <a href="#"><i class="fa-brands fa-facebook"></i></a>
-              <a href="#"><i class="fa-brands fa-twitter"></i></a>
-              <a href="#"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            </li>
-          </ul>
-          <p class="label fw-bold fs-3 text-end">info@tasharuky</p>
-        </div>
-      </div>
-      <div class="copy-right text-center bg-black">
-        <p dir="rtl" class="m-0">© جميع الحقوق محفوظة منصة تشاركي 2025</p>
-      </div>
-    </div>
   </body>
 </html>
