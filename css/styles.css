@@ -11,7 +11,8 @@
 }
 @font-face {
   font-family: somar;
-  src: url(../assets/fonts/Somar-Light.otf), url(../assets/fonts/Somar-SemiBold.otf);
+  src: url(../assets/fonts/Somar-Light.otf),
+    url(../assets/fonts/Somar-SemiBold.otf);
 }
 
 body {
@@ -53,23 +54,26 @@ body {
 }
 
 /* ============ الـ Hero / الكاروسيل ============ */
-.carousel-item {
+.hero-section .carousel-item {
   height: 500px;
   overflow: hidden;
   border-radius: 50px;
   position: relative;
 }
-.carousel-item .overlay {
+.hero-section .carousel-item .overlay {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   z-index: 10;
-  background-image: linear-gradient(rgba(218, 23, 23, 0.4), rgba(29, 7, 128, 0.3));
+  background-image: linear-gradient(
+    rgba(218, 23, 23, 0.4),
+    rgba(29, 7, 128, 0.3)
+  );
   border-radius: 50px;
 }
-.carousel-item img {
+.hero-section .carousel-item img {
   position: absolute;
   top: 0;
   left: 0;
@@ -79,16 +83,16 @@ body {
   z-index: 2;
   border-radius: 50px;
 }
-.carousel-indicators {
+.hero-section .carousel-indicators {
   z-index: 100;
 }
-.carousel-indicators [data-bs-target] {
+.hero-section .carousel-indicators [data-bs-target] {
   display: block;
   width: 10px;
   height: 10px;
   border-radius: 50%;
 }
-.start-journey:hover {
+.hero-section .start-journey:hover {
   background-color: #eee;
 }
 
@@ -128,7 +132,11 @@ body {
 
 /* ============ الإحصائيات ============ */
 .statistics {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.788), rgba(14, 5, 54, 0.897)),
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.788),
+      rgba(14, 5, 54, 0.897)
+    ),
     url(https://www.tasharuky.com/images/statistics.jpg);
   font-family: roundedArial, somar, sans-serif;
   background-size: cover;
