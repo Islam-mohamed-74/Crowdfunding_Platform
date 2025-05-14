@@ -25,37 +25,58 @@
         <img src="./assets/images/logo.webp" alt="Tasharuky-logo" />
       </a>
 
-      <div class="collapse navbar-collapse me-3" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active fs-4 fw-bold text-primary" aria-current="page" href="#">الصفحة الرئيسية</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link fs-4" href="#">حملاتنا</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link fs-4" href="#">قطاعات المشاريع</a>
-          </li>
-          <form class="d-flex" role="search">
-            <input class="form-control py-0" type="search" placeholder="بحث ..." aria-label="Search" />
-            <button class="btn" type="submit">
-              <i class="fa-solid fa-magnifying-glass text-primary"></i>
-            </button>
-          </form>
-        </ul>
+        <div class="collapse navbar-collapse me-3" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active fs-4 fw-bold text-primary"
+                aria-current="page"
+                href="#"
+                >الصفحة الرئيسية</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fs-4" href="#">حملاتنا</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fs-4" href="#">قطاعات المشاريع</a>
+            </li>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control py-0"
+                type="search"
+                placeholder="بحث ..."
+                aria-label="Search"
+              />
+              <button class="btn" type="submit">
+                <i class="fa-solid fa-magnifying-glass text-primary"></i>
+              </button>
+            </form>
+          </ul>
+        </div>
+        <div class="register-login">
+          <a href="#" class="btn fs-4 fw-semibold border rounded-pill">
+            إنشاء حساب
+          </a>
+          <a
+            href="#"
+            class="btn btn-primary fs-4 fw-semibold border rounded-pill"
+            >تسجيل دخول</a
+          >
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
       </div>
-      <div class="register-login">
-        <a href="#" class="btn fs-4 fw-semibold border rounded-pill">
-          إنشاء حساب
-        </a>
-        <a href="#" class="btn btn-primary fs-4 fw-semibold border rounded-pill">تسجيل دخول</a>
-      </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </nav>
+    </nav>
 
   <!-- ---------------- end header  ---------------- -->
 
@@ -194,37 +215,48 @@
 
   <!-- ---------------- مراحل عمل تشاركي   4 ---------------- --- -->
 
-  <section class="section-steps my-5">
-    <div class="container">
-      <div class="row row-gap-5 align-items-center justify-content-center">
-        <div class="col-7 col-md-6">
-          <div class="content-steps p-5">
-            <h2 class="fs-1 fw-bolder">كيف تعمل منصة تشاركي</h2>
-            <p class="fs-3">
-              لأن مساهمتك تنهض بالمجتمعات توفر منصة تشاركي للتمويل الجماعي
-              أساليب وطرق ملائمة تسهل لك دعم المشاريع الخيرية والمبادرات
-              الإنسانية من الإغاثة في حالات الكوارث إلى التعليم والاستدامة،
-              كما تقدم تشاركي رحلة تمويل سَلسة تبدأ بخطوات معدودة تقوم من
-              خلالها الجمعيات بطلب التمويل.
-            </p>
+    <section class="section-steps my-5 d-none">
+      <div class="container">
+        <div class="row row-gap-5 align-items-center justify-content-center">
+          <div class="col-7 col-md-6">
+            <div class="content-steps p-5">
+              <h2 class="fs-1 fw-bolder">كيف تعمل منصة تشاركي</h2>
+              <p class="fs-3">
+                لأن مساهمتك تنهض بالمجتمعات توفر منصة تشاركي للتمويل الجماعي
+                أساليب وطرق ملائمة تسهل لك دعم المشاريع الخيرية والمبادرات
+                الإنسانية من الإغاثة في حالات الكوارث إلى التعليم والاستدامة،
+                كما تقدم تشاركي رحلة تمويل سَلسة تبدأ بخطوات معدودة تقوم من
+                خلالها الجمعيات بطلب التمويل.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="col-7 col-md-6">
-          <div class="rounded">
-            <iframe class="rounded-5" width="514" height="350" src="https://www.youtube.com/embed/8VGzZlXoKW0"
-              title="كيف تعمل منصة تشاركي للتمويل الجماعي؟ #crowdfunding" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+          <div class="col-7 col-md-6">
+            <div class="rounded">
+              <iframe
+                class="rounded-5"
+                width="514"
+                height="350"
+                src="https://www.youtube.com/embed/8VGzZlXoKW0"
+                title="كيف تعمل منصة تشاركي للتمويل الجماعي؟ #crowdfunding"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen=""
+              ></iframe>
+            </div>
           </div>
-        </div>
-        <div class="col-12">
-          <div class="image-steps">
-            <img src="./assets/images/workmap_ar.svg" alt="workmap_ar" width="100%" />
+          <div class="col-12">
+            <div class="image-steps">
+              <img
+                src="./assets/images/workmap_ar.svg"
+                alt="workmap_ar"
+                width="100%"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   <!-- ---------------- مراحل عمل تشاركي   4 ---------------- --- -->
 
