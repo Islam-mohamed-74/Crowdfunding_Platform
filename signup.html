@@ -22,32 +22,15 @@
     <title>Tasharuky</title>
   </head>
   <body dir="rtl">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid justify-content-start">
+    <nav class="navbar navbar-expand-lg border-bottom">
+      <div
+        class="container-fluid justify-content-evenly justify-content-sm-between"
+      >
         <a class="navbar-brand" href="#">
-          <img
-            src="./assets/images/logo.webp"
-            alt="Tasharuky-logo"
-            width="250"
-          />
+          <img src="./assets/images/logo.webp" alt="Tasharuky-logo" />
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+
         <div class="collapse navbar-collapse me-3" id="navbarSupportedContent">
-          <form class="d-flex" role="search">
-            <button class="btn" type="submit">
-              <i class="fa-solid fa-magnifying-glass text-primary"></i>
-            </button>
-          </form>
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a
@@ -63,30 +46,72 @@
             <li class="nav-item">
               <a class="nav-link fs-4" href="#">قطاعات المشاريع</a>
             </li>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control py-0"
+                type="search"
+                placeholder="بحث ..."
+                aria-label="Search"
+              />
+              <button class="btn" type="submit">
+                <i class="fa-solid fa-magnifying-glass text-primary"></i>
+              </button>
+            </form>
           </ul>
         </div>
+        <div class="register-login">
+          <a
+            href="./signup.html"
+            class="btn fs-4 fw-semibold border rounded-pill"
+          >
+            إنشاء حساب
+          </a>
+          <a
+            href="./login.html"
+            class="btn btn-primary fs-4 fw-semibold border rounded-pill"
+            >تسجيل دخول</a
+          >
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
       </div>
     </nav>
 
     <!-- ------------------------ main ------------------------------------ -->
     <div class="signup-main">
-      <div class="container">
-        <div class="info-wrapper">
-          <h1>منصة تشاركي</h1>
-          <h2>أهلاً بكم في منصة تشاركي للتمويل الجماعي</h2>
-          <p>
+      <div class="container row mx-auto p-md-5">
+        <div
+          class="info-wrapper p-3 mb-3 text-center text-white col-12 col-md-8 col-lg-5 mx-auto d-flex flex-column justify-content-center"
+        >
+          <h1 class="fw-bold mb-3" style="font-size: calc(3.375rem + 1.5vw)">
+            منصة تشاركي
+          </h1>
+          <h2 class="fw-bold fs-1 mb-3">
+            أهلاً بكم في منصة تشاركي للتمويل الجماعي
+          </h2>
+          <p class="fs-3">
             تشاركي منصة تربط أصحاب المشاريع الإنسانية ذات الأثر الاجتماعي من
             جميع أنحاء العالم، يمكنك الآن بدء رحلتك عبر تشاركي سواء كنت طالب
             تمويل 'منظمة' أو داعم 'متبرع' عبر امتلاك حساب مجاني يتيح لك سهولة
             إجراء العمليات التي تحتاج إليها داخل منصتنا.
           </p>
         </div>
-        <div class="signup-form">
-          <div class="card-signup shadow p-3 bg-white rounded-4">
-            <h2>انشاء حساب</h2>
-            <div class="msg">
-              <p>
-                لديك حساب ؟ <a href="#" class="text-primary">تسجيل الدخول</a>
+        <div class="signup-form p-3 col-12 col-md-8 col-lg-5 mx-auto">
+          <div class="card-signup shadow p-4 bg-white rounded-4">
+            <h2 class="fw-bold fs-1">انشاء حساب</h2>
+            <div class="msg fs-4">
+              <p class="">
+                لديك حساب ؟
+                <a href="./login.html" class="text-primary">تسجيل الدخول</a>
               </p>
             </div>
             <div class="form-floating mb-3">
@@ -96,7 +121,9 @@
                 id="floatingInput"
                 placeholder="name@example.com"
               />
-              <label for="floatingInput" style="right: 0">اسم المستخدم</label>
+              <label for="floatingInput" class="fs-4" style="right: 0"
+                >اسم المستخدم</label
+              >
             </div>
             <div class="select d-flex gap-3 w-50">
               <div class="form-check">
@@ -106,7 +133,11 @@
                   name="radioDefault"
                   id="radioDefault1"
                 />
-                <label class="form-check-label" for="radioDefault1">
+                <label
+                  class="form-check-label"
+                  class="fs-3"
+                  for="radioDefault1"
+                >
                   مؤسسه
                 </label>
               </div>
@@ -118,7 +149,11 @@
                   id="radioDefault2"
                   checked
                 />
-                <label class="form-check-label" for="radioDefault2">
+                <label
+                  class="form-check-label"
+                  class="fs-3"
+                  for="radioDefault2"
+                >
                   داعم
                 </label>
               </div>
@@ -130,7 +165,9 @@
                 id="floatingInput"
                 placeholder="name@example.com"
               />
-              <label for="floatingInput" style="right: 0">اسم المؤسسة</label>
+              <label for="floatingInput" class="fs-4" style="right: 0"
+                >اسم المؤسسة</label
+              >
             </div>
             <div class="form-floating mb-3">
               <input
@@ -139,7 +176,7 @@
                 id="floatingInput"
                 placeholder="name@example.com"
               />
-              <label for="floatingInput" style="right: 0">
+              <label for="floatingInput" class="fs-4" style="right: 0">
                 البريد الالكتروني</label
               >
             </div>
@@ -150,7 +187,7 @@
                 id="floatingpassword"
                 placeholder="name@example.com"
               />
-              <label for="floatingpassword" style="right: 0"
+              <label for="floatingpassword" class="fs-4" style="right: 0"
                 >كلمة المرور
               </label>
             </div>
@@ -161,30 +198,31 @@
                 id="floatingpassword"
                 placeholder="name@example.com"
               />
-              <label for="floatingpassword" style="right: 0"
+              <label for="floatingpassword" class="fs-4" style="right: 0"
                 >تاكيد كلمة المرور
               </label>
             </div>
-            <div class="form-check">
+            <div class="form-check d-flex align-items-center gap-4">
               <input
-                class="form-check-input"
+                class="form-check-input fs-4"
                 type="checkbox"
                 value=""
                 id="checkDefault"
                 style="float: right"
               />
-              <label class="form-check-label mx-4" for="checkDefault">
+              <label class="form-check-label fs-4 mx-4" for="checkDefault">
                 انا اوافق على الشروط والاحكام
               </label>
             </div>
             <div class="button w-100 d-flex my-3">
-              <button
-                type="button"
-                class="btn btn-primary btn mx-auto w-75 rounded-5"
+              <a
+                href="./backer.html"
+                class="btn btn-primary btn mx-auto w-75 rounded-5 fs-2"
               >
                 انشاء حساب
-              </button>
+              </a>
             </div>
+            <a href="#" class="text-primary fs-3"> نسيت كلمة المرور ؟</a>
           </div>
         </div>
       </div>
