@@ -118,8 +118,7 @@ body {
 .process {
   width: 25%;
   height: 100%;
-  background-color: var(--bs-primary);
-  border-start-start-radius: 8px;
+  background-color: var(--bs-primary); 
 }
 .btn-campaign:hover {
   background-color: #a0190ae3 !important;
@@ -445,6 +444,87 @@ body {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* ========================== start admin panel ========================= */
+
+
+.sidebar {
+  min-width: 300px;
+  height: 100vh;
+}
+
+.content-body {
+  width: 90%;
+  
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: var(--secondary-color);
+}
+
+.filter-container {
+  margin-bottom: 1rem;
+}
+
+.table-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+.tab-button  {
+  padding: 1rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* ========================== end admin panel ========================= */
 
 
 
