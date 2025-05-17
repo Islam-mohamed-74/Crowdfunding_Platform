@@ -1,3 +1,5 @@
+import fetchData from "../utlis/api.js";
+
 const tabButtons = document.querySelectorAll(".tab-button");
 const tabContents = document.querySelectorAll(".tab-content");
 
@@ -17,24 +19,38 @@ tabButtons.forEach((button) => {
 });
 
 // ========== Original Schema Data ==========
-const users = [
-  {
-    id: 1,
-    name: "Jane Doe",
-    role: "campaigner",
-    isActive: true,
-    email: "jane@example.com",
-    password: "hashed_password",
-  },
-  {
-    id: 2,
-    name: "Ali Hassan",
-    role: "backer",
-    isActive: true,
-    email: "ali@example.com",
-    password: "hashed_password2",
-  },
-];
+
+// GET
+
+const apiUrl = "http://localhost:3000";
+let users = [];
+fetchData(`${apiUrl}/users`)
+  .then((data) => {
+    users = data;
+    applyUserFilter();
+  })
+  .catch((error) => {
+    console.error("Error caught outside:", error);
+  });
+
+// const users = [
+//   {
+//     id: 1,
+//     name: "Jane Doe",
+//     role: "campaigner",
+//     isActive: true,
+//     email: "jane@example.com",
+//     password: "hashed_password",
+//   },
+//   {
+//     id: 2,
+//     name: "Ali Hassan",
+//     role: "backer",
+//     isActive: true,
+//     email: "ali@example.com",
+//     password: "hashed_password2",
+//   },
+// ];
 
 const campaigns = [
   {
@@ -69,6 +85,7 @@ function renderUsers(userList) {
     tableBody.innerHTML = `<tr><td colspan="6">No users found</td></tr>`;
     return;
   }
+  console.log(users);
 
   userList.forEach((user) => {
     const row = document.createElement("tr");
@@ -79,12 +96,18 @@ function renderUsers(userList) {
       <td>${user.email}</td>
       <td>${user.role}</td>
       <td>
-        <span style="color: ${user.isActive ? "green" : "red"};">
+        <span class="${
+          user.isActive
+            ? "text-success bg-success-subtle"
+            : "text-primary bg-danger-subtle"
+        }  p-2 rounded" >
           ${user.isActive ? "Active" : "Inactive"}
         </span>
       </td>
       <td>
-        <button onclick="toggleStatus(${user.id})">
+        <button class="btn-admin p-2 border-0 outline-none rounded-2 text-light ${
+          !user.isActive ? "bg-success" : "bg-primary"
+        }" data-user-id=${user.id} >
           ${user.isActive ? "Deactivate" : "Activate"}
         </button>
       </td>
@@ -94,8 +117,19 @@ function renderUsers(userList) {
   });
 }
 
+tableBody.addEventListener("click", function (e) {
+  if (e.target && e.target.classList.contains("btn-admin")) {
+    const userId = Number(e.target.getAttribute("data-user-id"));
+
+    toggleStatus(userId);
+  }
+});
+
 function toggleStatus(userId) {
+  console.log("userId:", userId);
+  console.log("users array:", users);
   const user = users.find((u) => u.id === userId);
+  console.log(user.isActive);
   if (user) {
     user.isActive = !user.isActive;
     applyUserFilter();
@@ -112,7 +146,7 @@ function applyUserFilter() {
 }
 
 filterCheckbox.addEventListener("change", applyUserFilter);
-renderUsers(users);
+// renderUsers(users);
 
 // ========== Campaigns ==========
 const campaignsBody = document.getElementById("campaigns-table-body");
