@@ -431,7 +431,8 @@ body {
 a {
   text-decoration: none;
 }
-.signup-main {
+.signup-main,
+.login-main {
   background-image: linear-gradient(
       to bottom,
       rgba(3, 34, 100, 0.838),

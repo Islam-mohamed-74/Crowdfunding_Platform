@@ -87,7 +87,7 @@
     </nav>
 
     <!-- ------------------------ main ------------------------------------ -->
-    <div class="signup-main">
+    <form class="login-main">
       <div class="container row mx-auto p-md-5">
         <div
           class="info-wrapper p-3 mb-3 text-center text-white col-12 col-md-8 col-lg-5 mx-auto d-flex flex-column justify-content-center"
@@ -105,7 +105,7 @@
             إجراء العمليات التي تحتاج إليها داخل منصتنا.
           </p>
         </div>
-        <div class="signup-form p-3 col-12 col-md-8 col-lg-5 mx-auto">
+        <form class="login-form p-3 col-12 col-md-8 col-lg-5 mx-auto">
           <div class="card-signup shadow p-4 bg-white rounded-4">
             <h2 class="fw-bold fs-1 mb-4">تسجيل دخول</h2>
             <div class="msg fs-4">
@@ -118,8 +118,9 @@
               <input
                 type="email"
                 class="form-control"
-                id="floatingInput"
+                id="floatingEmail"
                 placeholder="name@example.com"
+                required
               />
               <label for="floatingInput" class="fs-4" style="right: 0">
                 البريد الالكتروني</label
@@ -130,28 +131,17 @@
                 type="password"
                 class="form-control"
                 id="floatingpassword"
-                placeholder="name@example.com"
+                placeholder=""
+                required
               />
               <label for="floatingpassword" class="fs-4" style="right: 0"
                 >كلمة المرور
               </label>
             </div>
-
-            <div class="form-check d-flex align-items-center gap-4">
-              <input
-                class="form-check-input fs-4"
-                type="checkbox"
-                value=""
-                id="checkDefault"
-                style="float: right"
-              />
-              <label class="form-check-label fs-4 mx-4" for="checkDefault">
-                انا اوافق على الشروط والاحكام
-              </label>
-            </div>
+            <div id="massage" class="invalid-feedback fs-4"></div>
             <div class="button w-100 d-flex my-3">
               <button
-                type="button"
+                type="submit"
                 class="btn btn-primary btn mx-auto w-75 rounded-5 fs-2"
               >
                 تسجيل دخول
@@ -159,9 +149,9 @@
             </div>
             <a href="#" class="text-primary fs-3"> نسيت كلمة المرور ؟</a>
           </div>
-        </div>
+        </form>
       </div>
-    </div>
+    </form>
     <!-- ---------------- footer 8 ---------------- --- -->
 
     <div class="footer text-center">
@@ -239,5 +229,6 @@
         <p dir="rtl" class="m-0">© جميع الحقوق محفوظة منصة تشاركي 2025</p>
       </div>
     </div>
+    <script src="./js/functions/auth.js"></script>
   </body>
 </html>
