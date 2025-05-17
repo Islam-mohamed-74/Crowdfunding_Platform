@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/admin.css">
+
+    <script src="./js/bootstrap.bundle.min.js" defer></script>
+
+    <title>Tasharuky Admin Panel</title>
+</head>
+
+<body>
+
+
+    <main class="d-flex bg-light">
+        <aside class="sidebar  shadow-sm border-end bg-white">
+            <div class="brand-logo d-flex justify-content-center my-4">
+                <a class="navbar-brand" href="#">
+                    <img src="./assets/images/logo.webp" alt="Tasharuky-logo" width="200" />
+                </a>
+            </div>
+            <div class="content">
+                <div class="container">
+                    <div class="">
+                        <button id="users-tab" class="tab-button active">Users</button>
+                    </div>
+                    <div class="">
+                        <button id="campaigns-tab" class="tab-button">Campaigns</button>
+                    </div>
+                    <div class="">
+                        <button id="pledges-tab" class="tab-button">Pledges</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <div class="content w-100">
+            <header class="head p-2 ">
+                <div class=" shadow-lg">
+                    <div class="content-header p-3 d-flex justify-content-between align-items-center">
+                        <div class="back-home">
+
+                            <a href="#" class="text-decoration-none text-dark"> <i class="fa-solid fa-house"></i> Back
+                                to home </a>
+                        </div>
+
+                        <div class="user-info d-flex align-items-center">
+                            <div class="info ms-3 text-start">
+                                <p class="name m-0 text-capitalize"> Ahmed Mohamed </p>
+                                <p class="email m-0"> ahmed@ahmed.com </p>
+                            </div>
+                            <img src="./assets/images/useravatar.webp" alt="avatar" width="50" class="rounded-circle">
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="content-body  mx-auto ps-5 pt-5">
+
+                <section id="users-section" class="tab-content active ">
+                    <h2>User Management</h2>
+                    <div class="filter-container">
+                        <label>
+                            <input type="checkbox" id="pending-campaigners-filter"> Show only pending campaigners
+                        </label>
+                    </div>
+                    <div class="table-container ">
+                        <table id="users-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-table-body">
+
+                                <tr>
+                                    <td> User data will be loaded here</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="campaigns-section" class="tab-content">
+                    <h2>Campaign Moderation</h2>
+                    <div class="filter-container">
+                        <label>
+                            <input type="checkbox" id="pending-campaigns-filter"> Show only pending campaigns
+                        </label>
+                    </div>
+                    <div class="table-container">
+                        <table id="campaigns-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Creator</th>
+                                    <th>Goal</th>
+                                    <th>Deadline</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="campaigns-table-body">
+                                Campaign data will be loaded here
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="pledges-section" class="tab-content">
+                    <h2>Pledges Overview</h2>
+                    <div class="table-container">
+                        <table id="pledges-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Campaign</th>
+                                    <th>User</th>
+                                    <th>Amount</th>
+                                    <th>Reward</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pledges-table-body">
+                                Pledge data will be loaded here
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </main>
+
+
+
+
+
+
+
+    <!-- <main>
+        <section id="users-section" class="tab-content active">
+            <h2>User Management</h2>
+            <div class="filter-container">
+                <label>
+                    <input type="checkbox" id="pending-campaigners-filter"> Show only pending campaigners
+                </label>
+            </div>
+            <div class="table-container">
+                <table id="users-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table-body">
+                        User data will be loaded here
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="campaigns-section" class="tab-content">
+            <h2>Campaign Moderation</h2>
+            <div class="filter-container">
+                <label>
+                    <input type="checkbox" id="pending-campaigns-filter"> Show only pending campaigns
+                </label>
+            </div>
+            <div class="table-container">
+                <table id="campaigns-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Creator</th>
+                            <th>Goal</th>
+                            <th>Deadline</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="campaigns-table-body">
+                        Campaign data will be loaded here
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="pledges-section" class="tab-content">
+            <h2>Pledges Overview</h2>
+            <div class="table-container">
+                <table id="pledges-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Campaign</th>
+                            <th>User</th>
+                            <th>Amount</th>
+                            <th>Reward</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pledges-table-body">
+                        Pledge data will be loaded here
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main> -->
+
+    <!-- <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div id="modal-body"></div>
+            <div class="modal-footer">
+                <button id="modal-cancel" class="button secondary">Cancel</button>
+                <button id="modal-confirm" class="button primary">Confirm</button>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <script type="module" src="./src/main.js"></script> -->
+<script src="./js/oop/admin.js"></script>
+</body>
+
+</html>
