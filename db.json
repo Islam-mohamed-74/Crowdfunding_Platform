@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "name": "Jane Doe",
+      "role": "campaigner",
+      "isActive": true,
+      "email": "jane@example.com",
+      "password": "hashed_password",
+      "id": "4521"
+    },
+    {
+      "id": "d4b8",
+      "name": "ellen",
+      "campaigner": "islam mohamed",
+      "email": "islam.mohamed.alrfa3i@gmail.com",
+      "password": "123456",
+      "isActive": false,
+      "role": "backer"
+    },
+    {
+      "id": "8463",
+      "name": "momo",
+      "campaigner": "mohamed ali",
+      "email": "mohamed@mohamed.com",
+      "password": "91827645",
+      "isActive": false,
+      "role": "campaigner"
+    }
+  ],
+  "campaigns": [
+    {
+      "title": "Smart Watch",
+      "creatorId": 1,
+      "goal": 5000,
+      "deadline": "2024-12-31",
+      "isApproved": true,
+      "rewards": [
+        {
+          "id": 1,
+          "title": "Early Bird",
+          "amount": 50
+        }
+      ],
+      "id": "4521",
+      "role": "backer"
+    }
+  ],
+  "pledges": [
+    {
+      "campaignId": 1,
+      "userId": 2,
+      "amount": 100,
+      "rewardId": 1,
+      "id": "d4b8"
+    }
+  ]
+}
