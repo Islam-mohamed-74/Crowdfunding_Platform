@@ -87,7 +87,7 @@
     </nav>
 
     <!-- ------------------------ main ------------------------------------ -->
-    <form class="login-main">
+    <div class="login-main">
       <div class="container row mx-auto p-md-5">
         <div
           class="info-wrapper p-3 mb-3 text-center text-white col-12 col-md-8 col-lg-5 mx-auto d-flex flex-column justify-content-center"
@@ -105,8 +105,11 @@
             إجراء العمليات التي تحتاج إليها داخل منصتنا.
           </p>
         </div>
-        <form class="login-form p-3 col-12 col-md-8 col-lg-5 mx-auto">
-          <div class="card-signup shadow p-4 bg-white rounded-4">
+        <form
+          id="login"
+          class="login-form p-3 col-12 col-md-8 col-lg-5 mx-auto"
+        >
+          <div class="card-login shadow p-4 bg-white rounded-4">
             <h2 class="fw-bold fs-1 mb-4">تسجيل دخول</h2>
             <div class="msg fs-4">
               <p class="">
@@ -151,7 +154,7 @@
           </div>
         </form>
       </div>
-    </form>
+    </div>
     <!-- ---------------- footer 8 ---------------- --- -->
 
     <div class="footer text-center">
@@ -229,6 +232,7 @@
         <p dir="rtl" class="m-0">© جميع الحقوق محفوظة منصة تشاركي 2025</p>
       </div>
     </div>
-    <script src="./js/functions/auth.js"></script>
+    <script src="./js/oop/backer.js"></script>
+    <!-- <script src="./js/functions/auth.js"></script> -->
   </body>
 </html>
