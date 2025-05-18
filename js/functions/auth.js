@@ -16,16 +16,17 @@ const doc = {
     console.log(form);
     form.addEventListener(
       "submit",
-      (event) => {
+      async (event) => {
         editLabel(form);
-
+        event.preventDefault();
         validatePassword(doc.password, doc.password2);
         validateEmail(doc);
         validateName(doc);
-
+        await checkIdenticalEmail(doc.email);
         if (!form.checkValidity()) {
           event.preventDefault();
           event.stopPropagation();
+          form.reportValidity(); // show errors in form  now
         } else {
           // catch form data
           const formData = {
@@ -54,6 +55,7 @@ const validateEmail = ({ email }) => {
 
   const re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   email.addEventListener("input", () => {
     if (!re.test(String(email.value).toLowerCase())) {
       email.setCustomValidity("بريد الكتروني غير صحيح");
@@ -115,30 +117,102 @@ const sendDataToJson = (formData) => {
       alert("حدث خطأ أثناء إنشاء الحساب.");
     });
 };
-// check before send if email is identical
-const checkIdenticalEmail = () => {};
+// check before send if email is use before
+const checkIdenticalEmail = async (emailElement) => {
+  try {
+    const response = await fetch("http://localhost:3000/users", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    if (data.find((user) => user.email === emailElement.value)) {
+      emailElement.setCustomValidity("البريد الإلكتروني مستخدم من قبل.");
+    } else {
+      emailElement.setCustomValidity("");
+    }
+  } catch (error) {
+    console.error("Error: get users", error);
+  }
+};
 
-// login validation
+// logout
+const logout = () => {
+  if (
+    !window.location.href.includes("login.html") &&
+    !window.location.href.includes("signup.html")
+  ) {
+    {
+      const buttonLogout = document.querySelector(".dropdown-menu").children[1];
+      buttonLogout.addEventListener("click", () => {
+        localStorage.removeItem("user");
+        window.location.href = "login.html";
+      });
+    }
+  }
+};
 
-const form = document.querySelector(".login-form");
-console.log(form);
+logout();
 
-const massege = document.getElementById("massage");
+// check if user is logged in
+const checkLoggedIn = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (user) {
+    const registerLogin = (document.querySelector(
+      ".register-login"
+    ).children[0].style.display = "none");
+    const createAcount = (document.querySelector(
+      ".register-login"
+    ).children[1].style.display = "none");
+  }
+};
+checkLoggedIn();
 
-form.addEventListener(
-  "submit",
-  (event) => {
-    event.preventDefault();
-    validateLogin();
-  },
-  false
-);
+const addUserName = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (user) {
+    const userName = document.querySelector(".dropdown-center");
+    const imageUser = document.querySelector(".register-login img");
+    const containerUser = document.querySelector(".container-userName");
+    containerUser.classList.remove("d-none");
+    containerUser.style =
+      "margin-right: 20px; display: flex; align-items: center;";
+    userName.children[1].textContent = user.name;
+  }
+};
 
-const validateLogin = () => {
-  const email = document.getElementById("floatingEmail");
-  const password = document.getElementById("floatingpassword");
+addUserName();
 
-  fetch("http://localhost:3000/users", {
+// move to profile
+const moveToProfile = () => {
+  const user = JSON.parse(localStorage.getItem("user")) || {};
+  if (user.role === "backer") {
+    const buttonBacker = document.querySelector(".dropdown-menu").children[0];
+    // console.log(buttonBacker);
+    buttonBacker.addEventListener("click", () => {
+      window.location.href = "backer.html";
+    });
+  } else {
+    if (
+      !window.location.href.includes("login.html") &&
+      !window.location.href.includes("signup.html")
+    ) {
+      const buttonBacker = document.querySelector(".dropdown-menu").children[0];
+      console.log(buttonBacker);
+      buttonBacker.addEventListener("click", () => {
+        window.location.href = "campaigner.html";
+      });
+    }
+  }
+};
+
+moveToProfile();
+
+// create campaign in html
+
+const getDataCampain = () => {
+  fetch("http://localhost:3000/campaigns", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -151,27 +225,111 @@ const validateLogin = () => {
       return response.json();
     })
     .then((data) => {
-      let user = data.find(
-        (user) => user.email === email.value && user.password === password.value
-      );
-      if (user) {
-        massege.textContent = "تم تسجيل الدخول بنجاح";
-        massege.style.color = "green";
-        massege.style.display = "block";
-        localStorage.setItem("user", JSON.stringify(user));
-        setTimeout(() => {
-          window.location.href = "index.html";
-        }, 2000);
-      } else {
-        massege.textContent = "البريد الكتروني او كلمة المرور غير صحيحة";
-        massege.style.color = "red";
-        massege.style.display = "block";
-      }
+      console.log("Success:", data);
+      createCrud(data);
     })
     .catch((error) => {
-      massege.textContent = "حدث خطاء في التسجيل يرجى المحاولة";
-      massege.style.color = "red";
-      massege.style.display = "block";
-      console.error("Error:", error);
+      console.error("not response:", error);
     });
+};
+
+getDataCampain();
+
+const createCrud = (data) => {
+  const cardContainer = document.querySelector(".container-crud");
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(data.length && cardContainer.innerHTML);
+
+  if (data.length) {
+    // ? (cardContainer.innerHTML =
+    //       "<p class='text-center fs-4 fw-bold text-danger '> لا يوجد بيانات ليتم عرضها    </p>")
+    //   :
+    const result = data.filter((e) => e.isApproved === true);
+    console.log(result.length);
+
+    result.length === 0
+      ? (cardContainer.innerHTML = `<p class='text-center fs-4 fw-bold text-danger '> لا يوجد بيانات ليتم عرضها    </p>`)
+      : result.forEach((element) => {
+          console.log(element);
+          cardContainer.innerHTML +=
+            `
+          <div class="col-12 col-md-5 col-lg-4 ">
+            <div class="card border-0 rounded-2 shadow-lg rounded">
+              <div class="img-card bg-secondary position-relative rounded-top" style="height: 200px;">
+                <img
+                  src="../assets/images/patenr-1.webp"
+    
+                  class="w-100 rounded-top h-100"
+                />
+                <span
+                  class="campaign_card_overlay campaign-heart position-absolute"
+                >
+                  <i class="fa-regular fa-heart text-primary fs-4"></i>
+                </span>
+                <span
+                  class="campaign_card_overlay position-absolute bottom-0 start-0 px-3 py-1 bg-primary text-white fs-4 rounded"
+                >
+                  التعليم والتدريب</span
+                >
+              </div>
+              <div class="card-body text-center">
+                <h4 class="product__title text-primary">
+                      ` +
+            user.campaigner +
+            `
+                </h4>
+                <h3 class="text-secondary fw-bold">
+                ` +
+            element.title +
+            `
+                </h3>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="px-4 border-start mt-3">
+                    <p class="m-0">200</p>
+                    <h5>متبرعين</h5>
+                  </div>
+                  <div class="country-flag">
+                    <span class="fs-5"> فلسطين </span>
+                    <img src="./assets/images/ps.svg" width="80" alt="فلسطين" />
+                  </div>
+                </div>
+                <div class="process-campaign my-4">
+                  <div class="percent text-primary text-start">25%</div>
+                  <div class="line-process">
+                    <div class="process rounded-start-2"></div>
+                  </div>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <div class="px-2 border-start mt-3">
+                    <h5>قيمة المشروع</h5>
+                    <p class="m-0 fw-semibold">` +
+            element.goal +
+            `</p>
+                    <span class="fs-6 fw-semibold">$</span>
+                  </div>
+                  <div class="px-2 border-start mt-3">
+                    <h5>الدعم</h5>
+                    <p class="m-0 fw-semibold">0</p>
+                    <span class="fs-6 fw-semibold">$</span>
+                  </div>
+                  <div class="px-2 mt-3">
+                    <h5>المتبقى</h5>
+                    <p class="m-0 fw-semibold">36400</p>
+                    <span class="fs-6 fw-semibold">$</span>
+                  </div>
+                </div>
+                <a
+                  href="#"
+                  class="btn bg-primary btn-campaign my-4 px-4 rounded-pill text-light fs-4 fw-semibold"
+                >
+                  ادعم الآن
+                </a>
+              </div>
+            </div>
+          </div>
+    `;
+        });
+  }
 };

@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/styles.css" />
 
-  <script src="./js/bootstrap.bundle.min.js" defer></script>
-  <title>Tasharuky</title>
-</head>
+    <script src="./js/bootstrap.bundle.min.js" defer></script>
+    <title>Tasharuky</title>
+  </head>
 
   <body dir="rtl">
     <!-- ---------------- start header  ---------------- -->
@@ -75,6 +75,28 @@
             class="btn btn-primary fs-4 fw-semibold border rounded-pill"
             >تسجيل دخول</a
           >
+          <div class="container-userName d-none">
+            <div class="dropdown-center mx-3">
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item fs-3" href="#">حسابي</a></li>
+                <li><a class="dropdown-item fs-3" href="#"> تسجيل خروج</a></li>
+              </ul>
+              <button
+                class="btn btn-primary text-capitalize dropdown-toggle fs-5"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Centered dropdown
+              </button>
+            </div>
+            <img
+              src="./assets/images/useravatar.webp"
+              class="container-fluid"
+              alt=""
+              style="width: 100px"
+            />
+          </div>
         </div>
         <button
           class="navbar-toggler"
@@ -201,77 +223,9 @@
           <h4 class="fw-bold">دعمك يبنى المجتمعات</h4>
           <div class="line-campaign"></div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="card border-0 rounded-2 shadow-lg rounded">
-              <div class="img-card bg-secondary position-relative rounded-top">
-                <img
-                  src="./assets/images/card-1.webp"
-                  class="w-100 rounded-top"
-                />
-                <span
-                  class="campaign_card_overlay campaign-heart position-absolute"
-                >
-                  <i class="fa-regular fa-heart text-primary fs-4"></i>
-                </span>
-                <span
-                  class="campaign_card_overlay position-absolute bottom-0 start-0 px-3 py-1 bg-primary text-white fs-4 rounded"
-                >
-                  التعليم والتدريب</span
-                >
-              </div>
-              <div class="card-body text-center">
-                <h4 class="product__title text-primary">
-                  جمعية النور لخدمة القرآن الكريم
-                </h4>
-                <h3 class="text-secondary fw-bold">
-                  توفير المصحف الشريف للمحتاجين في أفريقيا
-                </h3>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="px-4 border-start mt-3">
-                    <p class="m-0">200</p>
-                    <h5>متبرعين</h5>
-                  </div>
-                  <div class="country-flag">
-                    <span class="fs-5"> فلسطين </span>
-                    <img src="./assets/images/ps.svg" width="80" alt="فلسطين" />
-                  </div>
-                </div>
-                <div class="process-campaign my-4">
-                  <div class="percent text-primary text-start">25%</div>
-                  <div class="line-process">
-                    <div class="process rounded-start-2"></div>
-                  </div>
-                </div>
-                <div
-                  class="d-flex justify-content-between align-items-center mt-3"
-                >
-                  <div class="px-2 border-start mt-3">
-                    <h5>قيمة المشروع</h5>
-                    <p class="m-0 fw-semibold">50000</p>
-                    <span class="fs-6 fw-semibold">$</span>
-                  </div>
-                  <div class="px-2 border-start mt-3">
-                    <h5>الدعم</h5>
-                    <p class="m-0 fw-semibold">13600</p>
-                    <span class="fs-6 fw-semibold">$</span>
-                  </div>
-                  <div class="px-2 mt-3">
-                    <h5>المتبقى</h5>
-                    <p class="m-0 fw-semibold">36400</p>
-                    <span class="fs-6 fw-semibold">$</span>
-                  </div>
-                </div>
-                <a
-                  href="#"
-                  class="btn bg-primary btn-campaign my-4 px-4 rounded-pill text-light fs-4 fw-semibold"
-                >
-                  ادعم الآن
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div
+          class="container-crud row row-gap-4 justify-content-center align-items-center"
+        ></div>
         <div class="more-projects d-flex justify-content-center">
           <a
             href="#"
