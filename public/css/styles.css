@@ -445,12 +445,16 @@ a {
 
 /* ========================== start admin panel ========================= */
 
-.sidebar {
-  min-width: 300px;
+.admin .sidebar {
+  min-width: 25%;
   height: 100vh;
 }
 
+<<<<<<< HEAD
 .admin .content {
+=======
+.admin .content{
+>>>>>>> nooh-branch
   width: 75% !important;
 }
 
@@ -503,7 +507,7 @@ a {
 .admin tr:last-child td {
   border-bottom: none;
 }
-.tab-button {
+.admin .tab-button {
   padding: 1rem 0.75rem;
   border: none;
   border-radius: 4px;
@@ -559,7 +563,11 @@ a {
 }
 
 .admin .button.warning {
+<<<<<<< HEAD
   background-color: #f39c12;
+=======
+  background-color: #f39c12 ;
+>>>>>>> nooh-branch
   color: white;
 }
 
