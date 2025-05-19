@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <title>Tasharuky</title>
+</head>
+
+<body dir="rtl">
+  <nav class="navbar navbar-expand-lg border-bottom">
+    <div class="container-fluid justify-content-evenly justify-content-sm-between">
+      <a class="navbar-brand" href="#">
+        <img src="./assets/images/logo.webp" alt="Tasharuky-logo" />
+      </a>
+
+      <div class="collapse navbar-collapse me-3" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active fs-4 fw-bold text-primary" aria-current="page" href="#">الصفحة الرئيسية</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-4" href="#">حملاتنا</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-4" href="#">قطاعات المشاريع</a>
+          </li>
+          <form class="d-flex" role="search">
+            <input class="form-control py-0" type="search" placeholder="بحث ..." aria-label="Search" />
+            <button class="btn" type="submit">
+              <i class="fa-solid fa-magnifying-glass text-primary"></i>
+            </button>
+          </form>
+        </ul>
+      </div>
+      <div class="register-login">
+        <a href="./signup.html" class="btn fs-4 fw-semibold border rounded-pill">
+          إنشاء حساب
+        </a>
+        <a href="#" class="btn btn-primary fs-4 fw-semibold border rounded-pill">تسجيل دخول</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ------------------------ main ------------------------------------ -->
+  <div class="login-main">
+    <div class="container row mx-auto p-md-5">
+      <div
+        class="info-wrapper p-3 mb-3 text-center text-white col-12 col-md-8 col-lg-5 mx-auto d-flex flex-column justify-content-center">
+        <h1 class="fw-bold mb-3" style="font-size: calc(3.375rem + 1.5vw)">
+          منصة تشاركي
+        </h1>
+        <h2 class="fw-bold fs-1 mb-3">
+          أهلاً بكم في منصة تشاركي للتمويل الجماعي
+        </h2>
+        <p class="fs-3">
+          تشاركي منصة تربط أصحاب المشاريع الإنسانية ذات الأثر الاجتماعي من
+          جميع أنحاء العالم، يمكنك الآن بدء رحلتك عبر تشاركي سواء كنت طالب
+          تمويل 'منظمة' أو داعم 'متبرع' عبر امتلاك حساب مجاني يتيح لك سهولة
+          إجراء العمليات التي تحتاج إليها داخل منصتنا.
+        </p>
+      </div>
+      <form id="login" class="login-form p-3 col-12 col-md-8 col-lg-5 mx-auto">
+        <div class="card-login shadow p-4 bg-white rounded-4">
+          <h2 class="fw-bold fs-1 mb-4">تسجيل دخول</h2>
+          <div class="msg fs-4">
+            <p class="">
+              ليس لديك حساب ؟
+              <a href="./signup.html" class="text-primary"> انشاء حساب</a>
+            </p>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required />
+            <label for="floatingInput" class="fs-4" style="right: 0">
+              البريد الالكتروني</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingpassword" placeholder="" required />
+            <label for="floatingpassword" class="fs-4" style="right: 0">كلمة المرور
+            </label>
+          </div>
+          <div id="massage" class="invalid-feedback fs-4"></div>
+          <div class="button w-100 d-flex my-3">
+            <button type="submit" class="btn btn-primary btn mx-auto w-75 rounded-5 fs-2">
+              تسجيل دخول
+            </button>
+          </div>
+          <a href="#" class="text-primary fs-3"> نسيت كلمة المرور ؟</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- ---------------- footer 8 ---------------- --- -->
+
+  <div class="footer text-center">
+    <div class="w-100 row justify-content-center pt-5 px-4 px-md-2 mx-auto">
+      <div class="col-12 col-md-4 col-lg-3">
+        <div class="company d-flex justify-content-start my-3">
+          <img class="w-75" src="./assets/images/logo.webp" alt="Tasharuky-logo" />
+        </div>
+        <p class="mt-3">
+          تشاركي.. منصة رقمية متخصصة في التمويل الجماعي، صُممت لتكون بيئة آمنة
+          لتقديم حلول ذكية باستخدام أحدث تقنيات التكنولوجيا المالية، وبوابة
+          تجمع مؤسسات العمل الإنساني الموثوقة مع الممولين؛ تتميز تشاركي في
+          تطبيق مبدأ المشاركة كونها تعمل على نطاق دولي وتوفر للداعمين خيارات
+          متعددة في عرض مشاريع المؤسسات في مكان واحد، ومتوافقة مع مبادئ
+          الشريعة الإسلامية.
+        </p>
+      </div>
+      <div class="col-12 col-md-4 col-lg-1">
+        <ul class="list-unstyled d-flex justify-content-center align-items-start flex-column">
+          <li><a href="#">الرئيسية</a></li>
+          <li><a href="#">من نحن</a></li>
+          <li><a href="#">الخدمات</a></li>
+          <li><a href="#">شركاؤنا</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2">
+        <ul class="list-unstyled d-flex justify-content-center align-items-start flex-column">
+          <li><a href="#">كيف تعمل تشاركي</a></li>
+          <li><a href="#">تقيم مؤسسات والمشاريع </a></li>
+          <li><a href="#">سياسة استرداد الاموال</a></li>
+          <li><a href="#">سياسة الخصوصية</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2">
+        <ul class="list-unstyled d-flex justify-content-center align-items-start flex-column">
+          <li><a href="#"> اكتشف</a></li>
+          <li><a href="#"> المقالات </a></li>
+          <li><a href="#">اسئله شائعه </a></li>
+          <li><a href="#"> الانشطه والاخبار</a></li>
+          <li><a href="#"> اتصل بنا</a></li>
+        </ul>
+      </div>
+      <div class="last-section col-12 col-md-4 col-lg-4">
+        <p class="label fw-bold fs-3">اشترك في نشرتنا البريدية</p>
+        <div class="subscripe d-flex gap-4">
+          <input class="form-control me-2 w-50" type="email" placeholder="البريد الالكتروني" />
+          <button class="btn btn-primary fw-bold fs-5">اشترك</button>
+        </div>
+        <ul>
+          <li class="d-flex gap-4 mx-2 my-3">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          </li>
+        </ul>
+        <p class="label fw-bold fs-3 text-end">info@tasharuky</p>
+      </div>
+    </div>
+    <div class="copy-right text-center bg-black">
+      <p dir="rtl" class="m-0">© جميع الحقوق محفوظة منصة تشاركي 2025</p>
+    </div>
+  </div>
+  <script src="./js/oop/backer.js"></script>
+  <!-- <script src="./js/functions/auth.js"></script> -->
+</body>
+
+</html>

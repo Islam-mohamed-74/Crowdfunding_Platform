@@ -1,0 +1,79 @@
+{
+  "users": [
+    {
+      "name": "Jane Doe",
+      "role": "campaigner",
+      "isActive": true,
+      "email": "jane@example.com",
+      "password": "hashed_password",
+      "id": "4521"
+    },
+    {
+      "id": "d4b8",
+      "name": "islam",
+      "campaigner": "islam mohamed",
+      "email": "islam.mohamed.alrfa3i@gmail.com",
+      "password": "1234578",
+      "isActive": false,
+      "role": "backer"
+    },
+    {
+      "id": "0f72",
+      "name": "اسلام محمد ",
+      "campaigner": "my camaoin",
+      "email": "pedri@gmail.com",
+      "password": "Islam2",
+      "isActive": false,
+      "role": "campaigner"
+    },
+    {
+      "id": "39d8",
+      "name": "Mohamed Nooh",
+      "campaigner": "Refaei",
+      "email": "noohmohamed1999@gmail.com",
+      "password": "321987654",
+      "isActive": true,
+      "role": "backer"
+    },
+    {
+      "id": "08ee",
+      "name": "Mohamed Ali",
+      "campaigner": "omran",
+      "email": "omran@omran.com",
+      "password": "973164825",
+      "isActive": false,
+      "role": "backer"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "1",
+      "title": "Eating",
+      "creatorId": "0f72",
+      "goal": "5000",
+      "rewardTitle": "Early Bird",
+      "rewardAmount": "50",
+      "campaignImage": "/7.jpg",
+      "isApproved": true
+    },
+    {
+      "id": "ed70",
+      "title": "Smart Watch",
+      "creatorId": "0f72",
+      "goal": "5000",
+      "rewardTitle": "Early Bird",
+      "rewardAmount": "50",
+      "campaignImage": "/7.jpg",
+      "isApproved": true
+    }
+  ],
+  "pledges": [
+    {
+      "campaignId": 1,
+      "userId": 2,
+      "amount": 100,
+      "rewardId": 1,
+      "id": "23d0"
+    }
+  ]
+}
