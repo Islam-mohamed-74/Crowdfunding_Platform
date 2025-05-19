@@ -102,18 +102,37 @@
             >
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="back-to-home d-none d-lg-block mx-3 fs-2 fw-semibold">
+            <div class="back-to-home mx-3 fs-2 fw-semibold">
               <a href="index.html">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 <span>العودة للرئيسية</span>
               </a>
             </div>
-            <img
-              src="./assets/images/useravatar.webp"
-              class="container-fluid m-0"
-              alt=""
-              style="width: 77px"
-            />
+            <div class="container-userName d-none">
+              <div class="dropdown-center mx-3">
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item fs-3" href="#">حسابي</a></li>
+                  <li>
+                    <a class="dropdown-item fs-3" href="#"> تسجيل خروج</a>
+                  </li>
+                </ul>
+                <button
+                  class="btn btn-primary text-capitalize dropdown-toggle fs-5"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Centered dropdown
+                </button>
+              </div>
+              <img
+                src="./assets/images/useravatar.webp"
+                class="container-fluid m-0"
+                alt=""
+                style="width: 77px"
+              />
+            </div>
+
             <div
               class="offcanvas offcanvas-end w-75"
               tabindex="-1"
@@ -140,7 +159,7 @@
                     <a
                       class="nav-link active fs-2 mx-3"
                       aria-current="page"
-                      href="./campaigner.html"
+                      href="#"
                       >مشاريعي المفضله</a
                     >
                   </li>
@@ -149,7 +168,7 @@
                     <a
                       class="nav-link active fs-2 mx-3"
                       aria-current="page"
-                      href="./campaigner.html"
+                      href="#"
                     >
                       مساهماتي</a
                     >
@@ -159,13 +178,13 @@
                     <a
                       class="nav-link active fs-2 mx-3"
                       aria-current="page"
-                      href="./campaigner.html"
+                      href="#"
                     >
                       تقيم المشاريع</a
                     >
                   </li>
                   <li class="nav-item d-flex align-items-center">
-                    <i class="fa-solid fa-user fs-2"></i>
+                    <i class="fa-solid fa-user"></i>
                     <a
                       class="nav-link active fs-2 mx-3"
                       aria-current="page"
@@ -190,20 +209,76 @@
             </div>
           </div>
         </nav>
-        <div class="card">
-          <div class="card-body">
-            <h4 class="fw-bold">أهلاً بكم في بوابة المساهمين لمنصة تشاركي</h4>
-
-            <div class="icon d-flex align-items-center">
-              <i class="fa-solid fa-pen-to-square fs-3 m-3"></i>
-              <h4 class="">
-                يمكنكم من خلال البوابة متابعة الحملات والمشاريع ، متابعة
-                المساهمات المالية، وتقييم المشاريع المنجزة
-              </h4>
-            </div>
+        <!-- // form to create project  -->
+        <form
+          class="form-send shadow p-4 bg-body rounded-4 mt-5 w-75 mx-auto needs-validation"
+        >
+          <div class="mb-3">
+            <label for="title" class="form-label fs-3">عنوان المشروع</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              value="Smart Watch"
+            />
           </div>
-        </div>
+          <div class="mb-3">
+            <label for="creatorId" class="form-label fs-3">معرف المنشئ</label>
+            <input
+              type="number"
+              class="form-control"
+              id="creatorId"
+              value="1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="goal" class="form-label fs-3">الهدف</label>
+            <input type="number" class="form-control" id="goal" value="5000" />
+          </div>
+          <div class="mb-3">
+            <label for="rewardTitle" class="form-label fs-3"
+              >عنوان الجائزة</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="rewardTitle"
+              value="Early Bird"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="rewardAmount" class="form-label fs-3"
+              >مبلغ الجائزة</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="rewardAmount"
+              value="50"
+            />
+          </div>
+          <!-- // upload image -->
+          <div class="mb-3">
+            <label for="formFile" class="form-label fs-3">صورة المشروع</label>
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+          <!-- // الدوله   -->
+          <div class="mb-3">
+            <label for="country" class="form-label fs-3">الدولة</label>
+            <select
+              class="form-select fs-3"
+              aria-label="Default select example"
+            >
+              <option selected>اختر الدولة</option>
+              <option value="1">مصر</option>
+              <option value="3">فلسطين</option>
+              <option value="2">السعوديه</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary w-25 fs-3">إرسال</button>
+        </form>
       </div>
     </div>
+    <script src="./js/oop/campaigner.js"></script>
   </body>
 </html>

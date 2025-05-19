@@ -11,20 +11,20 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/styles.css">
 
-    <!-- <script src="./js/bootstrap.bundle.min.js" defer></script> -->
+    <script src="./js/bootstrap.bundle.min.js" defer></script>
 
     <title>Tasharuky Admin Panel</title>
 </head>
 
 <body>
-    <main class="d-flex bg-light">
+    <main class="d-flex bg-light admin">
         <aside class="sidebar shadow-sm border-end bg-white">
             <div class="brand-logo d-flex justify-content-center my-4">
                 <a class="navbar-brand" href="#">
                     <img src="./assets/images/logo.webp" alt="Tasharuky-logo" width="200" />
                 </a>
             </div>
-            <div class="content">
+            <div class="content-sidebar">
                 <div class="container">
                     <div class="">
                         <button id="users-tab" class="tab-button active">Users</button>
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </aside>
-        <div class="content w-100">
+        <div class="content">
             <header class="head p-2">
                 <div class="shadow-lg">
                     <div class="content-header p-3 d-flex justify-content-between align-items-center">
@@ -58,8 +58,7 @@
                     </div>
                 </div>
             </header>
-            <div class="content-body  mx-auto ps-5 pt-5">
-
+            <div class="content-body mx-auto my-5 pt-5">
                 <section id="users-section" class="tab-content active ">
                     <h2>User Management</h2>
                     <div class="filter-container ">
@@ -109,7 +108,9 @@
                                 </tr>
                             </thead>
                             <tbody id="campaigns-table-body">
-                                <tr> <td> Campaigns data loaded here </td></tr>
+                                <tr>
+                                    <td> Campaigns data loaded here </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -129,7 +130,9 @@
                                 </tr>
                             </thead>
                             <tbody id="pledges-table-body">
-                                <tr><td>loading pledges data</td></tr> 
+                                <tr>
+                                    <td>loading pledges data</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -150,10 +153,10 @@
             </div>
         </div>
     </div> -->
- 
-    <script src="./js/oop/admin/admin.js" type="module"></script>
-    <script src="./js/oop/admin/campaigner.js" type="module"></script>
-    <script src="./js/oop/admin/pledges.js" type="module"></script>
+
+    <script src="./js/oop/managers/user-manager.js" type="module"></script>
+    <script src="./js/oop/managers/campaign-manager.js" type="module"></script>
+    <script src="./js/oop/managers/pledge-manager.js" type="module"></script>
 </body>
 
 </html>

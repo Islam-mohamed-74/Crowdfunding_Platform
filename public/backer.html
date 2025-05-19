@@ -102,18 +102,37 @@
             >
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="back-to-home d-none d-lg-block mx-3 fs-2 fw-semibold">
+            <div class="back-to-home mx-3 fs-2 fw-semibold">
               <a href="index.html">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 <span>العودة للرئيسية</span>
               </a>
             </div>
-            <img
-              src="./assets/images/useravatar.webp"
-              class="container-fluid m-0"
-              alt=""
-              style="width: 77px"
-            />
+            <div class="container-userName d-none">
+              <div class="dropdown-center mx-3">
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item fs-3" href="#">حسابي</a></li>
+                  <li>
+                    <a class="dropdown-item fs-3" href="#"> تسجيل خروج</a>
+                  </li>
+                </ul>
+                <button
+                  class="btn btn-primary text-capitalize dropdown-toggle fs-5"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Centered dropdown
+                </button>
+              </div>
+              <img
+                src="./assets/images/useravatar.webp"
+                class="container-fluid m-0"
+                alt=""
+                style="width: 77px"
+              />
+            </div>
+
             <div
               class="offcanvas offcanvas-end w-75"
               tabindex="-1"
@@ -164,6 +183,16 @@
                       تقيم المشاريع</a
                     >
                   </li>
+                  <li class="nav-item d-flex align-items-center">
+                    <i class="fa-solid fa-user"></i>
+                    <a
+                      class="nav-link active fs-2 mx-3"
+                      aria-current="page"
+                      href="./backer-personal.html"
+                    >
+                      حسابي</a
+                    >
+                  </li>
                 </ul>
                 <form class="d-flex mt-3" role="search">
                   <input
@@ -195,5 +224,30 @@
         </div>
       </div>
     </div>
+    <script>
+      const addUserName = () => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user) {
+          const userName = document.querySelector(".dropdown-center");
+          const imageUser = document.querySelector(".register-login img");
+          const containerUser = document.querySelector(".container-userName");
+          containerUser.classList.remove("d-none");
+          containerUser.style =
+            "margin-right: 20px; display: flex; align-items: center;";
+          userName.children[1].textContent = user.name;
+        }
+      };
+      addUserName();
+      // logout
+      const logout = () => {
+        const buttonLogout =
+          document.querySelector(".dropdown-menu").children[1];
+        buttonLogout.addEventListener("click", () => {
+          localStorage.removeItem("user");
+          window.location.href = "login.html";
+        });
+      };
+      logout();
+    </script>
   </body>
 </html>
