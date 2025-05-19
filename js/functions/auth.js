@@ -117,6 +117,7 @@ const sendDataToJson = (formData) => {
       alert("حدث خطأ أثناء إنشاء الحساب.");
     });
 };
+
 // check before send if email is use before
 const checkIdenticalEmail = async (emailElement) => {
   try {
@@ -241,7 +242,6 @@ const createCrud = (data) => {
   console.log(data.length && cardContainer.innerHTML);
 
   if (data.length) {
-    // ? (cardContainer.innerHTML =
     //       "<p class='text-center fs-4 fw-bold text-danger '> لا يوجد بيانات ليتم عرضها    </p>")
     //   :
     const result = data.filter((e) => e.isApproved === true);
