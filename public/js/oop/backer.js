@@ -3,9 +3,10 @@
 // move to profile
 const moveToProfile = () => {
   const user = JSON.parse(localStorage.getItem("user")) || {};
-  if (user.role === "backer") {
+  if (user.role === "backer" &&  !window.location.href.includes("login.html") &&
+      !window.location.href.includes("signup.html") ) {
     const buttonBacker = document.querySelector(".dropdown-menu").children[0];
-    // console.log(buttonBacker);
+    console.log(buttonBacker);
     buttonBacker.addEventListener("click", () => {
       window.location.href = "backer.html";
     });
@@ -26,7 +27,7 @@ const moveToProfile = () => {
 moveToProfile();
 
 const form = document.querySelector("#login");
-console.log(form);
+// console.log(form);
 
 const massege = document.getElementById("massage");
 

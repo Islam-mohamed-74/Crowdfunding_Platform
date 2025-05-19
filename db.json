@@ -25,6 +25,24 @@
       "password": "Islam2",
       "isActive": false,
       "role": "campaigner"
+    },
+    {
+      "id": "39d8",
+      "name": "Mohamed Nooh",
+      "campaigner": "Refaei",
+      "email": "noohmohamed1999@gmail.com",
+      "password": "321987654",
+      "isActive": true,
+      "role": "backer"
+    },
+    {
+      "id": "08ee",
+      "name": "Mohamed Ali",
+      "campaigner": "omran",
+      "email": "omran@omran.com",
+      "password": "973164825",
+      "isActive": false,
+      "role": "backer"
     }
   ],
   "campaigns": [
@@ -36,7 +54,7 @@
       "rewardTitle": "Early Bird",
       "rewardAmount": "50",
       "campaignImage": "/7.jpg",
-      "isApproved": false
+      "isApproved": true
     },
     {
       "id": "ed70",

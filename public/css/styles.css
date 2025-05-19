@@ -445,61 +445,69 @@ a {
 
 /* ========================== start admin panel ========================= */
 
-.sidebar {
-  min-width: 300px;
+.admin .sidebar {
+  min-width: 25%;
   height: 100vh;
 }
 
-.content-body {
+<<<<<<< HEAD
+.admin .content {
+=======
+.admin .content{
+>>>>>>> nooh-branch
+  width: 75% !important;
+}
+
+.admin .content-body {
   width: 90%;
 }
 
-.tab-content {
+.admin .tab-content {
   display: none;
   animation: fadeIn 0.3s;
 }
 
-.tab-content.active {
+.admin .tab-content.active {
   display: block;
 }
 
-h2 {
+.admin h2 {
   margin-bottom: 1.5rem;
   color: var(--secondary-color);
 }
 
-.filter-container {
+.admin .filter-container {
   margin-bottom: 1rem;
 }
 
-.table-container {
+.admin .table-container {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
+  overflow: auto;
 }
 
-table {
+.admin table {
   width: 100%;
   border-collapse: collapse;
 }
 
-th,
-td {
+.admin th,
+.admin td {
   padding: 0.75rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--border-color);
 }
 
-th {
+.admin th {
   background-color: #f8f9fa;
   font-weight: 600;
 }
 
-tr:last-child td {
+.admin tr:last-child td {
   border-bottom: none;
 }
-.tab-button {
+.admin .tab-button {
   padding: 1rem 0.75rem;
   border: none;
   border-radius: 4px;
@@ -508,6 +516,91 @@ tr:last-child td {
   transition: background-color 0.2s;
   width: 100%;
   margin-top: 1rem;
+}
+.admin .button {
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.admin .button.primary {
+  background-color: #4a6fa5;
+  color: white;
+}
+
+.admin .button.primary:hover {
+  background-color: #3d5d8a;
+}
+
+.admin .button.secondary {
+  background-color: #e9ecef;
+  color: #343a40;
+}
+
+.admin .button.secondary:hover {
+  background-color: #dee2e6;
+}
+
+.admin .button.success {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.admin .button.success:hover {
+  background-color: #27ae60;
+}
+
+.admin .button.danger {
+  background-color: var(--bs-primary);
+  color: white;
+}
+
+.admin .button.danger:hover {
+  background-color: #c0392b;
+}
+
+.admin .button.warning {
+<<<<<<< HEAD
+  background-color: #f39c12;
+=======
+  background-color: #f39c12 ;
+>>>>>>> nooh-branch
+  color: white;
+}
+
+.admin .button.warning:hover {
+  background-color: #e67e22;
+}
+
+.admin .badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.admin .badge.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.admin .badge.warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.admin .badge.danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.admin .badge.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
 }
 
 /* ========================== end admin panel ========================= */
