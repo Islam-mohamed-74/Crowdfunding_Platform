@@ -1,284 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Tasharuky Crowdfunding Platform" />
-    <link
-      rel="shortcut icon"
-      href="./assets/images/favicon.ico"
-      type="image/x-icon"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/styles.css" />
 
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <title>Tasharuky</title>
-  </head>
-  <body dir="rtl">
-    <div class="main d-flex align-items-start vh-100" style="width: 100vw">
-      <div
-        class="d-none d-lg-block h-100 bg-body shadow p-4"
-        style="width: 280px"
-      >
-        <div class="">
-          <img
-            src="./assets/images/logo.webp"
-            class="w-75 m-0 container-fluid"
-            alt=""
-          />
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1">
-            <li class="nav-item d-flex align-items-center">
-              <i class="fa-solid fa-star fs-4"></i>
-              <a
-                class="nav-link active fs-3 mx-3"
-                aria-current="page"
-                href="./campaigner.html"
-                >مشاريعي المفضله</a
-              >
-            </li>
-            <li class="nav-item d-flex align-items-center">
-              <i class="fa-solid fa-user fs-3"></i>
-              <a
-                class="nav-link active fs-2 mx-3"
-                aria-current="page"
-                href="./campaigner.html"
-              >
-                مساهماتي</a
-              >
-            </li>
-            <li class="nav-item d-flex align-items-center">
-              <i class="fa-solid fa-circle-check fs-3"></i>
-              <a
-                class="nav-link active fs-2 mx-3"
-                aria-current="page"
-                href="./campaigner.html"
-              >
-                تقيم المشاريع</a
-              >
-            </li>
-            <li class="nav-item d-flex align-items-center">
-              <i class="fa-solid fa-user fs-2"></i>
-              <a
-                class="nav-link active fs-2 mx-3"
-                aria-current="page"
-                href="./campaigner-personal.html"
-              >
-                حسابي</a
-              >
-            </li>
-          </ul>
-          <form class="d-flex mt-3" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-          </form>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tasharuky Crowdfunding Platform" />
+  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <title>Tasharuky</title>
+</head>
+
+<body dir="rtl">
+  <div class="main d-flex align-items-start vh-100" style="width: 100vw">
+    <div class="d-none d-lg-block h-100 bg-body shadow p-4" style="width: 280px">
+      <div class="">
+        <img src="./assets/images/logo.webp" class="w-75 m-0 container-fluid" alt="" />
       </div>
-      <div class="body-container mx-auto w-75">
-        <nav
-          class="navbar bg-body-tertiary shadow mx-auto mt-4 m-lg-1 w-100 w-lg-75 mb-4"
-        >
-          <div class="container-fluid">
-            <button
-              class="navbar-toggler d-lg-none"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasNavbar"
-              aria-controls="offcanvasNavbar"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="back-to-home mx-3 fs-2 fw-semibold">
-              <a href="index.html">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                <span>العودة للرئيسية</span>
-              </a>
-            </div>
-            <div class="container-userName d-none">
-              <div class="dropdown-center mx-3">
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item fs-3" href="#">حسابي</a></li>
-                  <li>
-                    <a class="dropdown-item fs-3" href="#"> تسجيل خروج</a>
-                  </li>
-                </ul>
-                <button
-                  class="btn btn-primary text-capitalize dropdown-toggle fs-5"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Centered dropdown
-                </button>
-              </div>
-              <img
-                src="./assets/images/useravatar.webp"
-                class="container-fluid m-0"
-                alt=""
-                style="width: 77px"
-              />
-            </div>
-
-            <div
-              class="offcanvas offcanvas-end w-75"
-              tabindex="-1"
-              id="offcanvasNavbar"
-              aria-labelledby="offcanvasNavbarLabel"
-            >
-              <div class="offcanvas-header">
-                <img
-                  src="./assets/images/logo.webp"
-                  class="w-50 m-0 container-fluid"
-                  alt=""
-                />
-                <button
-                  type="button"
-                  class="btn-close mx-3"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <li class="nav-item d-flex align-items-center">
-                    <i class="fa-solid fa-star"></i>
-                    <a
-                      class="nav-link active fs-2 mx-3"
-                      aria-current="page"
-                      href="#"
-                      >مشاريعي المفضله</a
-                    >
-                  </li>
-                  <li class="nav-item d-flex align-items-center">
-                    <i class="fa-solid fa-user"></i>
-                    <a
-                      class="nav-link active fs-2 mx-3"
-                      aria-current="page"
-                      href="#"
-                    >
-                      مساهماتي</a
-                    >
-                  </li>
-                  <li class="nav-item d-flex align-items-center">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <a
-                      class="nav-link active fs-2 mx-3"
-                      aria-current="page"
-                      href="#"
-                    >
-                      تقيم المشاريع</a
-                    >
-                  </li>
-                  <li class="nav-item d-flex align-items-center">
-                    <i class="fa-solid fa-user"></i>
-                    <a
-                      class="nav-link active fs-2 mx-3"
-                      aria-current="page"
-                      href="./campaigner-personal.html"
-                    >
-                      حسابي</a
-                    >
-                  </li>
-                </ul>
-                <form class="d-flex mt-3" role="search">
-                  <input
-                    class="form-control me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                  <button class="btn btn-outline-success" type="submit">
-                    Search
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </nav>
-        <!-- // form to create project  -->
-        <form
-          class="form-send shadow p-4 bg-body rounded-4 mt-5 w-75 mx-auto needs-validation"
-        >
-          <div class="mb-3">
-            <label for="title" class="form-label fs-3">عنوان المشروع</label>
-            <input
-              type="text"
-              class="form-control"
-              id="title"
-              value="Smart Watch"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="creatorId" class="form-label fs-3">معرف المنشئ</label>
-            <input
-              type="number"
-              class="form-control"
-              id="creatorId"
-              value="1"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="goal" class="form-label fs-3">الهدف</label>
-            <input type="number" class="form-control" id="goal" value="5000" />
-          </div>
-          <div class="mb-3">
-            <label for="rewardTitle" class="form-label fs-3"
-              >عنوان الجائزة</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="rewardTitle"
-              value="Early Bird"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="rewardAmount" class="form-label fs-3"
-              >مبلغ الجائزة</label
-            >
-            <input
-              type="number"
-              class="form-control"
-              id="rewardAmount"
-              value="50"
-            />
-          </div>
-          <!-- // upload image -->
-          <div class="mb-3">
-            <label for="formFile" class="form-label fs-3">صورة المشروع</label>
-            <input class="form-control" type="file" id="formFile" />
-          </div>
-          <!-- // الدوله   -->
-          <div class="mb-3">
-            <label for="country" class="form-label fs-3">الدولة</label>
-            <select
-              class="form-select fs-3"
-              aria-label="Default select example"
-            >
-              <option selected>اختر الدولة</option>
-              <option value="1">مصر</option>
-              <option value="3">فلسطين</option>
-              <option value="2">السعوديه</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary w-25 fs-3">إرسال</button>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1">
+          <li class="nav-item d-flex align-items-center">
+            <i class="fa-solid fa-star fs-4"></i>
+            <a class="nav-link active fs-3 mx-3" aria-current="page" href="./campaigner.html">مشاريعي المفضله</a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <i class="fa-solid fa-user fs-3"></i>
+            <a class="nav-link active fs-2 mx-3" aria-current="page" href="./campaigner.html">
+              مساهماتي</a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <i class="fa-solid fa-circle-check fs-3"></i>
+            <a class="nav-link active fs-2 mx-3" aria-current="page" href="./campaigner.html">
+              تقيم المشاريع</a>
+          </li>
+          <li class="nav-item d-flex align-items-center">
+            <i class="fa-solid fa-user fs-2"></i>
+            <a class="nav-link active fs-2 mx-3" aria-current="page" href="./campaigner-personal.html">
+              حسابي</a>
+          </li>
+        </ul>
+        <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
         </form>
       </div>
     </div>
-    <script src="./js/oop/campaigner.js"></script>
-  </body>
+    <div class="body-container mx-auto w-75">
+      <nav class="navbar bg-body-tertiary shadow mx-auto mt-4 m-lg-1 w-100 w-lg-75 mb-4">
+        <div class="container-fluid">
+          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="back-to-home mx-3 fs-2 fw-semibold">
+            <a href="index.html">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <span>العودة للرئيسية</span>
+            </a>
+          </div>
+          <div class="container-userName d-none">
+            <div class="dropdown-center mx-3">
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item fs-3" href="#">حسابي</a></li>
+                <li>
+                  <a class="dropdown-item fs-3" href="#"> تسجيل خروج</a>
+                </li>
+              </ul>
+              <button class="btn btn-primary text-capitalize dropdown-toggle fs-5" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Centered dropdown
+              </button>
+            </div>
+            <img src="./assets/images/useravatar.webp" class="container-fluid m-0" alt="" style="width: 77px" />
+          </div>
+
+          <div class="offcanvas offcanvas-end w-75" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <img src="./assets/images/logo.webp" class="w-50 m-0 container-fluid" alt="" />
+              <button type="button" class="btn-close mx-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item d-flex align-items-center">
+                  <i class="fa-solid fa-star"></i>
+                  <a class="nav-link active fs-2 mx-3" aria-current="page" href="#">مشاريعي المفضله</a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                  <i class="fa-solid fa-user"></i>
+                  <a class="nav-link active fs-2 mx-3" aria-current="page" href="#">
+                    مساهماتي</a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <a class="nav-link active fs-2 mx-3" aria-current="page" href="#">
+                    تقيم المشاريع</a>
+                </li>
+              </ul>
+              <form class="d-flex mt-3" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn btn-outline-success" type="submit">
+                  Search
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- // form to create project  -->
+      <form class="form-send shadow p-4 bg-body rounded-4 mt-5 w-75 mx-auto needs-validation">
+        <div class="mb-3">
+          <label for="title" class="form-label fs-3">عنوان المشروع</label>
+          <input type="text" class="form-control" id="title" value="Smart Watch" />
+        </div>
+        <div class="mb-3">
+          <label for="creatorId" class="form-label fs-3">معرف المنشئ</label>
+          <input type="number" class="form-control" id="creatorId" value="1" />
+        </div>
+        <div class="mb-3">
+          <label for="goal" class="form-label fs-3">الهدف</label>
+          <input type="number" class="form-control" id="goal" value="5000" />
+        </div>
+        <div class="mb-3">
+          <label for="rewardTitle" class="form-label fs-3">عنوان الجائزة</label>
+          <input type="text" class="form-control" id="rewardTitle" value="Early Bird" />
+        </div>
+        <div class="mb-3">
+          <label for="rewardAmount" class="form-label fs-3">مبلغ الجائزة</label>
+          <input type="number" class="form-control" id="rewardAmount" value="50" />
+        </div>
+        <!-- // upload image -->
+        <div class="mb-3">
+          <label for="formFile" class="form-label fs-3">صورة المشروع</label>
+          <input class="form-control" type="file" id="formFile" />
+        </div>
+        <!-- // الدوله   -->
+        <div class="mb-3">
+          <label for="country" class="form-label fs-3">الدولة</label>
+          <select class="form-select fs-3" aria-label="Default select example">
+            <option selected>اختر الدولة</option>
+            <option value="1">مصر</option>
+            <option value="3">فلسطين</option>
+            <option value="2">السعوديه</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary w-25 fs-3">إرسال</button>
+      </form>
+    </div>
+  </div>
+</body>
+
 </html>

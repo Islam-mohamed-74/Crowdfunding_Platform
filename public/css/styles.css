@@ -445,12 +445,12 @@ a {
 
 /* ========================== start admin panel ========================= */
 
-.admin .sidebar {
-  min-width: 25%;
+.sidebar {
+  min-width: 300px;
   height: 100vh;
 }
 
-.admin .content{
+.admin .content {
   width: 75% !important;
 }
 
@@ -503,7 +503,7 @@ a {
 .admin tr:last-child td {
   border-bottom: none;
 }
-.admin .tab-button {
+.tab-button {
   padding: 1rem 0.75rem;
   border: none;
   border-radius: 4px;
@@ -559,7 +559,7 @@ a {
 }
 
 .admin .button.warning {
-  background-color: #f39c12 ;
+  background-color: #f39c12;
   color: white;
 }
 
