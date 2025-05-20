@@ -10,7 +10,7 @@ const btnGroup = document.querySelector(".btn-group-campaigns");
 const btnPrev = document.querySelector(".btn-group-campaigns .btn-prev");
 const btnNext = document.querySelector(".btn-group-campaigns .btn-next");
 let currentPage = 1;
-const countCampaignsPage =10;
+const countCampaignsPage =2;
 
 let users = [];
 let campaigns = [];
