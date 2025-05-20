@@ -1,10 +1,17 @@
 import { getUsers, updateUser } from "../../services/api.js";
 
-const tabButtons = document.querySelectorAll(".tab-button");
-const tabContents = document.querySelectorAll(".tab-content");
-
 const tableBody = document.getElementById("users-table-body");
 const filterCheckbox = document.getElementById("pending-campaigners-filter");
+
+const countUsers = document.querySelector(".count-Pledges");
+const btnGroup = document.querySelector(".btn-group-Pledges");
+const btnPrev = document.querySelector(".btn-group-Pledges .btn-prev");
+const btnNext = document.querySelector(".btn-group-Pledges .btn-next");
+let currentPage = 1;
+const countUsersPage = 4;
+
+const tabButtons = document.querySelectorAll(".tab-button");
+const tabContents = document.querySelectorAll(".tab-content");
 
 tabButtons.forEach((button) => {
   button.addEventListener("click", function (e) {
@@ -54,26 +61,31 @@ function renderUsers() {
     return;
   }
 
-  userList.forEach((user) => {
+  let start = (currentPage - 1) * countUsersPage;
+  let end = start + countUsersPage;
+  let currentData = userList.slice(start, end);
+  console.log(currentData);
+
+  currentData.forEach((user) => {
     const row = document.createElement("tr");
 
     // Status badge class
     let statusBadgeClass = user.isActive ? "success" : "danger";
     let statusText = user.isActive ? "Active" : "Banned";
     let roleBadgeClass =
-      user.role === "pending_campaigner"  ? "warning" : "info" 
+      user.role === "pending_campaigner" ? "warning" : "info";
     row.innerHTML = `
         <td>${user.id}</td>
         <td>${user.name}</td>
         <td>${user.email}</td>
         <td><span class="badge ${roleBadgeClass}">${user.role}</span></td>
         <td><span class="badge ${statusBadgeClass}">${statusText}</span></td>
-        <td class="actions d-flex">
+        <td class="actions d-flex gap-1">
           ${
             user.role === "pending_campaigner"
               ? `<button  type="button" class="button success" data-action="approve-campaigner" data-id="${user.id}">Approve</button>
                   <button type="button" class="button danger" data-action="reject-campaigner" data-id="${user.id}">Reject</button>`
-              : ""  
+              : ""
           }
           ${
             user.isActive
@@ -85,6 +97,15 @@ function renderUsers() {
 
     tableBody.appendChild(row);
   });
+
+  if (users.length <= countUsersPage) {
+    btnGroup.style.display = "none";
+  } else {
+    btnGroup.style.display = "block";
+  }
+
+  updateCounter();
+  updatePaginationButtons();
 }
 
 function handleUserActionClick(e) {
@@ -94,7 +115,6 @@ function handleUserActionClick(e) {
     const action = e.target.dataset.action;
     const userId = e.target.dataset.id;
     console.log(users.role);
-    
 
     switch (action) {
       case "approve-campaigner":
@@ -132,6 +152,37 @@ async function handleUserUpdate(userId, updates, action) {
     return { success: false, error: error.message };
   }
 }
+
+function updateCounter() {
+  countUsers.textContent =
+    users.length === 0
+      ? "No users to show"
+      : `showing from  ${Math.min(
+          (currentPage - 1) * countUsersPage + 1,
+          users.length
+        )}  to ${Math.min(
+          currentPage * countUsersPage,
+          users.length
+        )} of ${users.length}`;
+}
+
+function updatePaginationButtons() {
+  btnPrev.disabled = currentPage === 1;
+  btnNext.disabled = currentPage * countUsersPage >= users.length;
+}
+
+btnPrev.addEventListener("click", function () {
+  if (currentPage > 1) {
+    currentPage--;
+    renderUsers()
+  }
+});
+btnNext.addEventListener("click", function () { 
+  if (currentPage < users.length / countUsersPage) {
+    currentPage++;
+    renderUsers()
+  }
+});
 
 tableBody.addEventListener("click", handleUserActionClick);
 filterCheckbox.addEventListener("change", renderUsers);

@@ -38,11 +38,28 @@
                 </div>
             </div>
         </aside>
-        <div class="content">
+        <div class="content-page">
             <header class="head p-2">
                 <div class="shadow-lg">
                     <div class="content-header p-3 d-flex justify-content-between align-items-center">
-                        <div class="back-home">
+                        <div class="back-home d-flex align-items-center gap-2">
+                            <div class="brand-logo d-flex gap-2">
+                                <a class="navbar-brand" href="#">
+                                    <img src="./assets/images/logo.webp" alt="Tasharuky-logo" width="200" />
+                                </a>
+                                <button class="btn-sidebar border-0 px-2 rounded-circle">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 7L4 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                                    </path>
+                                    <path opacity="0.5" d="M20 12L4 12" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round"></path>
+                                    <path d="M20 17L4 17" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round"></path>
+                                </svg>
+                            </button>
+                            </div>
+                            
                             <a href="#" class="text-decoration-none text-dark">
                                 <i class="fa-solid fa-house"></i> Back to home
                             </a>
@@ -58,7 +75,7 @@
                     </div>
                 </div>
             </header>
-            <div class="content-body mx-auto my-5 pt-5">
+            <div class="content-page-body mx-auto my-5 pt-5">
                 <section id="users-section" class="tab-content active ">
                     <h2>User Management</h2>
                     <div class="filter-container ">
@@ -85,6 +102,14 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="prev-next-count d-flex justify-content-between py-2 px-1 mt-1 bg-white">
+                        <div class="count-users">
+                        </div>
+                        <div class="btn-group-users">
+                            <button class="btn-prev button primary me-2"> prev </button>
+                            <button class="btn-next button primary"> Next </button>
+                        </div>
                     </div>
                 </section>
                 <section id="campaigns-section" class="tab-content">
@@ -114,6 +139,14 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="prev-next-count d-flex justify-content-between py-2 px-1 mt-1 bg-white">
+                        <div class="count-campaigner">
+                        </div>
+                        <div class="btn-group-campaigns">
+                            <button class="btn-prev button primary me-2"> prev </button>
+                            <button class="btn-next button primary"> Next </button>
+                        </div>
+                    </div>
                 </section>
 
                 <section id="pledges-section" class="tab-content">
@@ -135,6 +168,14 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="prev-next-count d-flex justify-content-between py-2 px-1 mt-1 bg-white">
+                        <div class="count-Pledges">
+                        </div>
+                        <div class="btn-group-Pledges">
+                            <button class="btn-prev button primary me-2"> prev </button>
+                            <button class="btn-next button primary"> Next </button>
+                        </div>
                     </div>
                 </section>
             </div>

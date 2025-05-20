@@ -12,8 +12,7 @@ const moveToProfile = () => {
       !window.location.href.includes("login.html") &&
       !window.location.href.includes("signup.html")
     ) {
-      const buttonBacker = document.querySelector(".dropdown-menu").children[0];
-      console.log(buttonBacker);
+      const buttonBacker = document.querySelector(".dropdown-menu").children[0]; 
       buttonBacker.addEventListener("click", () => {
         window.location.href = "campaigner.html";
       });

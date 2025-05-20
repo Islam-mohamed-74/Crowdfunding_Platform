@@ -65,6 +65,16 @@
       "rewardAmount": "50",
       "campaignImage": "/7.jpg",
       "isApproved": true
+    },
+    {
+      "id": "4f56",
+      "title": "حلويات فريقنا ",
+      "creatorId": "4521",
+      "goal": "10000",
+      "rewardTitle": "Early Bird",
+      "rewardAmount": "50",
+      "campaignImage": "",
+      "isApproved": false
     }
   ],
   "pledges": [

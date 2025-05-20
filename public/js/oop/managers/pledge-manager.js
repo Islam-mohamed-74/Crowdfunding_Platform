@@ -2,6 +2,15 @@ import { getCampaigns, getPledges, getUsers } from "../../services/api.js";
 
 const pledgesBody = document.getElementById("pledges-table-body");
 
+const countUsers = document.querySelector(".count-users");
+const btnGroup = document.querySelector(".btn-group-users");
+const btnPrev = document.querySelector(".btn-group-users .btn-prev");
+const btnNext = document.querySelector(".btn-group-users .btn-next");
+let currentPage = 1;
+const countUsersPage = 4;
+
+
+
 let pledges = [];
 let campaigns = [];
 let users = [];
@@ -26,13 +35,9 @@ async function loadPledges() {
     campaigns = dataCampaigns;
     users = dataUsers;
 
-    // console.log(pledges);
-    // console.log(campaigns);
-    // console.log(users);
-
     renderPledges();
   } catch (error) {
-    console.error("error load users");
+    console.error("Failed to load pledges:", error);
     throw error;
   }
 }
@@ -41,16 +46,17 @@ function renderPledges() {
   const tableBody = document.getElementById("pledges-table-body");
   tableBody.innerHTML = "";
 
+  let start = (currentPage - 1) * countUsersPage;
+  let end = start + countUsersPage;
+  let currentData = userList.slice(start, end);
+  console.log(currentData);
+
   pledges.forEach((pledge) => {
     const row = document.createElement("tr");
 
     // Find campaign and user
     const campaign = campaigns.find((c) => c.id === pledge.campaignId);
     const user = users.find((u) => u.id === pledge.userId);
-
-    // console.log(campaign);
-    // console.log(user);
-    
 
     // Find reward
     let rewardTitle = "No reward";
@@ -71,7 +77,47 @@ function renderPledges() {
 
     tableBody.appendChild(row);
   });
+
+  if (users.length <= countUsersPage) {
+    btnGroup.style.display = "none";
+  } else {
+    btnGroup.style.display = "block";
+  }
+
+  updateCounter();
+  updatePaginationButtons();
 }
+
+function updateCounter() {
+  countUsers.textContent =
+    users.length === 0
+      ? "No users to show"
+      : `showing from  ${Math.min(
+          (currentPage - 1) * countUsersPage + 1,
+          users.length
+        )}  to ${Math.min(currentPage * countUsersPage, users.length)} of ${
+          users.length
+        }`;
+}
+
+function updatePaginationButtons() {
+  btnPrev.disabled = currentPage === 1;
+  btnNext.disabled = currentPage * countUsersPage >= users.length;
+}
+
+btnPrev.addEventListener("click", function () {
+  if (currentPage > 1) {
+    currentPage--;
+    renderUsers();
+  }
+});
+btnNext.addEventListener("click", function () {
+  if (currentPage < users.length / countUsersPage) {
+    currentPage++;
+    renderUsers();
+  }
+});
+
 document.addEventListener("DOMContentLoaded", loadPledges);
 
 // export class PledgeManager {

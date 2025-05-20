@@ -284,7 +284,7 @@ const createCrud = (data) => {
             `
                 </h3>
                 <div class="d-flex justify-content-between align-items-center">
-                  <div class="px-4 border-start mt-3">
+                  <div class="px-4 border-start ">
                     <p class="m-0">200</p>
                     <h5>متبرعين</h5>
                   </div>
@@ -293,7 +293,7 @@ const createCrud = (data) => {
                     <img src="./assets/images/ps.svg" width="80" alt="فلسطين" />
                   </div>
                 </div>
-                <div class="process-campaign my-4">
+                <div class="process-campaign my-1">
                   <div class="percent text-primary text-start">25%</div>
                   <div class="line-process">
                     <div class="process rounded-start-2"></div>
@@ -322,7 +322,7 @@ const createCrud = (data) => {
                 </div>
                 <a
                   href="#"
-                  class="btn bg-primary btn-campaign my-4 px-4 rounded-pill text-light fs-4 fw-semibold"
+                  class="btn bg-primary btn-campaign my-2 px-3 rounded-pill text-light fs-5 fw-semibold"
                 >
                   ادعم الآن
                 </a>

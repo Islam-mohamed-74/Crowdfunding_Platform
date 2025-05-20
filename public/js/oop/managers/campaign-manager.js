@@ -5,6 +5,13 @@ import {
   getUsers,
 } from "../../services/api.js";
 
+const countCampaigner = document.querySelector(".count-campaigner");
+const btnGroup = document.querySelector(".btn-group-campaigns");
+const btnPrev = document.querySelector(".btn-group-campaigns .btn-prev");
+const btnNext = document.querySelector(".btn-group-campaigns .btn-next");
+let currentPage = 1;
+const countCampaignsPage =10;
+
 let users = [];
 let campaigns = [];
 
@@ -56,7 +63,12 @@ function renderCampaigns() {
     return;
   }
 
-  campaignsList.forEach((campaign) => {
+  let start = (currentPage - 1) * countCampaignsPage;
+  let end = start + countCampaignsPage;
+  let currentData = campaignsList.slice(start, end);
+  // console.log(currentData);
+
+  currentData.forEach((campaign) => {
     const row = document.createElement("tr");
 
     // Find creator name
@@ -73,7 +85,7 @@ function renderCampaigns() {
         <td>$${campaign.goal.toLocaleString()}</td>
         <td>${deadline}</td>
         <td><span class="badge ${statusBadgeClass}">${statusText}</span></td>
-        <td class="actions">
+        <td class="actions d-flex gap-1">
           ${
             !campaign.isApproved
               ? `<button class="button success" data-action="approve-campaign" data-id="${campaign.id}">Approve</button>`
@@ -82,15 +94,22 @@ function renderCampaigns() {
           <button class="button danger" data-action="delete-campaign" data-id="${
             campaign.id
           }">Delete</button>
-          <button class="button primary" data-action="view-details" data-id="${
-            campaign.id
-          }">Details</button>
+
         </td>
       `;
 
     campaignsBody.appendChild(row);
   });
-  // handleUserActionClick();
+
+  if (campaigns.length <= countCampaignsPage) {
+    btnGroup.style.display = "none";
+  } else {
+    btnGroup.style.display = "block";
+  }
+
+  updateCounter();
+  updatePaginationButtons();
+
   campaignsBody.removeEventListener("click", handleCampaignActionClick);
   campaignsBody.addEventListener("click", handleCampaignActionClick);
 }
@@ -103,7 +122,7 @@ function handleCampaignActionClick(e) {
     const action = e.target.dataset.action;
     const campaignId = e.target.dataset.id;
 
-    console.log(campaignId); 
+    console.log(campaignId);
 
     switch (action) {
       case "approve-campaign":
@@ -151,6 +170,37 @@ async function handleDeleteCampaign(campaignId, action) {
     return { success: false, error: error.message };
   }
 }
+
+function updateCounter() {
+  countCampaigner.textContent =
+    campaigns.length === 0
+      ? "No campaigner to show"
+      : `showing from  ${Math.min(
+          (currentPage - 1) * countCampaignsPage + 1,
+          campaigns.length
+        )}  to ${Math.min(
+          currentPage * countCampaignsPage,
+          campaigns.length
+        )} of ${campaigns.length}`;
+}
+ 
+function updatePaginationButtons() {
+  btnPrev.disabled = currentPage === 1;
+  btnNext.disabled = currentPage * countCampaignsPage >= campaigns.length;
+}
+
+btnPrev.addEventListener("click", function () {
+  if (currentPage > 1) {
+    currentPage--;
+    renderCampaigns();
+  }
+});
+btnNext.addEventListener("click", function () {
+  if (currentPage < campaigns.length / countCampaignsPage) {
+    currentPage++;
+    renderCampaigns();
+  }
+});
 
 pendingCampaignsCheckbox?.addEventListener("change", renderCampaigns);
 

@@ -450,15 +450,11 @@ a {
   height: 100vh;
 }
 
-<<<<<<< HEAD
-.admin .content {
-=======
-.admin .content{
->>>>>>> nooh-branch
-  width: 75% !important;
+.admin .content-page {
+  width: 75% ;
 }
 
-.admin .content-body {
+.admin .content-page-body {
   width: 90%;
 }
 
@@ -518,10 +514,11 @@ a {
   margin-top: 1rem;
 }
 .admin .button {
-  padding: 0.4rem 0.75rem;
+  padding: 0.2rem 0.5rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 13px;
   font-weight: 500;
   transition: background-color 0.2s;
 }
@@ -563,11 +560,7 @@ a {
 }
 
 .admin .button.warning {
-<<<<<<< HEAD
   background-color: #f39c12;
-=======
-  background-color: #f39c12 ;
->>>>>>> nooh-branch
   color: white;
 }
 
@@ -603,6 +596,10 @@ a {
   color: #0c5460;
 }
 
+.admin .prev-next-count .button.btn-prev:hover,
+.admin .prev-next-count .button.btn-next:hover {
+}
+
 /* ========================== end admin panel ========================= */
 
 /* ============ ميديا كويري ============ */
@@ -619,11 +616,22 @@ a {
   .workmap-iframe {
     height: 160px;
   }
+  .admin .sidebar .brand-logo img {
+    width: 120px;
+  }
 }
 @media (max-width: 768px) {
   .col-carousel {
     display: none;
   }
+}
+@media (max-width: 992px) {
+  .admin .sidebar {
+    display: none;
+  }
+  .admin .content-page {
+  width: 100% ;
+}
 }
 @media (min-width: 767px) {
   .partners .carousel-control-prev,
