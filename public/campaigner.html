@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Tasharuky Crowdfunding Platform" />
-  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="./css/bootstrap.min.css" />
-  <link rel="stylesheet" href="./css/styles.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tasharuky Crowdfunding Platform" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
 
     <script src="./js/bootstrap.bundle.min.js"></script>
     <title>Tasharuky</title>
   </head>
   <body dir="rtl">
-    <div class="main d-flex align-items-start vh-100" style="width: 100vw">
+    <div class="main d-flex align-items-start vh-100" style="width: 100%">
       <div
         class="d-none d-lg-block h-100 bg-body shadow p-4"
-        style="width: 280px"
+        style="width: 240px"
       >
         <div class="">
           <img
@@ -202,74 +209,109 @@
             </div>
           </div>
         </nav>
-        <!-- // form to create project  -->
-        <form
-          class="form-send shadow p-4 bg-body rounded-4 mt-5 w-75 mx-auto needs-validation"
-        >
-          <div class="mb-3">
-            <label for="title" class="form-label fs-3">عنوان المشروع</label>
-            <input
-              type="text"
-              class="form-control"
-              id="title"
-              value="Smart Watch"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="creatorId" class="form-label fs-3">معرف المنشئ</label>
-            <input
-              type="number"
-              class="form-control"
-              id="creatorId"
-              value="1"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="goal" class="form-label fs-3">الهدف</label>
-            <input type="number" class="form-control" id="goal" value="5000" />
-          </div>
-          <div class="mb-3">
-            <label for="rewardTitle" class="form-label fs-3"
-              >عنوان الجائزة</label
+        <div class="dropdown">
+          <!-- // button to create project -->
+
+          <div class="dropdown">
+            <button
+              type="button"
+              class="btn btn-primary fs-3 fw-semibold my-4"
+              data-bs-toggle="modal"
+              data-bs-target="#createProjectModal"
             >
-            <input
-              type="text"
-              class="form-control"
-              id="rewardTitle"
-              value="Early Bird"
-            />
+              انشاء مشروع
+            </button>
           </div>
-          <div class="mb-3">
-            <label for="rewardAmount" class="form-label fs-3"
-              >مبلغ الجائزة</label
-            >
-            <input
-              type="number"
-              class="form-control"
-              id="rewardAmount"
-              value="50"
-            />
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="createProjectModal"
+            tabindex="-1"
+            aria-labelledby="createProjectModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title fs-3" id="createProjectModalLabel">
+                    إنشاء مشروع
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form class="form-send shadow p-4 bg-body rounded-4">
+                    <div class="mb-3">
+                      <label for="title" class="form-label fs-3"
+                        >عنوان المشروع</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="title"
+                        value="Smart Watch"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="goal" class="form-label fs-3">الهدف</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="goal"
+                        value="5000"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="formFile" class="form-label fs-3"
+                        >صورة المشروع</label
+                      >
+                      <input class="form-control" type="file" id="formFile" />
+                    </div>
+                    <div class="mb-3">
+                      <label for="country" class="form-label fs-3"
+                        >الدولة</label
+                      >
+                      <select class="form-select fs-3" id="country">
+                        <option value="مصر">مصر</option>
+                        <option value="فلسطين">فلسطين</option>
+                        <option value="السعوديه">السعوديه</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="category" class="form-label fs-3">
+                        التصنيف
+                      </label>
+                      <select class="form-select fs-3" id="category">
+                        <option value="الصحه">الصحة</option>
+                        <option value="الامن الغذائي">الأمن الغذائي</option>
+                        <option value="التعليم والتدريب">
+                          التعليم والتدريب
+                        </option>
+                        <option value="التنميه المستدامه">
+                          التنميه المستدامه
+                        </option>
+                      </select>
+                    </div>
+                    <button
+                      type="button"
+                      id="send"
+                      class="btn btn-primary w-25 fs-3"
+                    >
+                      إرسال
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
-          <!-- // upload image -->
-          <div class="mb-3">
-            <label for="formFile" class="form-label fs-3">صورة المشروع</label>
-            <input class="form-control" type="file" id="formFile" />
-          </div>
-          <!-- // الدوله   -->
-          <div class="mb-3">
-            <label for="country" class="form-label fs-3">الدولة</label>
-            <select
-              class="form-select fs-3"
-              aria-label="Default select example"
-            >
-              <option selected>اختر الدولة</option>
-              <option value="1">مصر</option>
-              <option value="3">فلسطين</option>
-              <option value="2">السعوديه</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary w-25 fs-3">إرسال</button>
-        </form>
+          <h2 class="fs-1 fw-semibold my-4 text-white p-2">
+            المشاريع الحالية :
+          </h2>
+        </div>
       </div>
     </div>
     <script src="./js/oop/campaigner.js"></script>

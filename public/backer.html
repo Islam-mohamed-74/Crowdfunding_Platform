@@ -224,30 +224,6 @@
         </div>
       </div>
     </div>
-    <script>
-      const addUserName = () => {
-        const user = JSON.parse(localStorage.getItem("user"));
-        if (user) {
-          const userName = document.querySelector(".dropdown-center");
-          const imageUser = document.querySelector(".register-login img");
-          const containerUser = document.querySelector(".container-userName");
-          containerUser.classList.remove("d-none");
-          containerUser.style =
-            "margin-right: 20px; display: flex; align-items: center;";
-          userName.children[1].textContent = user.name;
-        }
-      };
-      addUserName();
-      // logout
-      const logout = () => {
-        const buttonLogout =
-          document.querySelector(".dropdown-menu").children[1];
-        buttonLogout.addEventListener("click", () => {
-          localStorage.removeItem("user");
-          window.location.href = "login.html";
-        });
-      };
-      logout();
-    </script>
+    <script src="./js/oop/backer.js"></script>
   </body>
 </html>

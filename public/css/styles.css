@@ -450,11 +450,7 @@ a {
   height: 100vh;
 }
 
-<<<<<<< HEAD
 .admin .content {
-=======
-.admin .content{
->>>>>>> nooh-branch
   width: 75% !important;
 }
 
@@ -563,11 +559,7 @@ a {
 }
 
 .admin .button.warning {
-<<<<<<< HEAD
   background-color: #f39c12;
-=======
-  background-color: #f39c12 ;
->>>>>>> nooh-branch
   color: white;
 }
 
