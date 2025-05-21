@@ -1,5 +1,3 @@
-// move to profile
-// move to profile
 const moveToProfile = () => {
   const user = JSON.parse(localStorage.getItem("user")) || {};
   if (user.role === "backer") {
@@ -13,7 +11,7 @@ const moveToProfile = () => {
       !window.location.href.includes("login.html") &&
       !window.location.href.includes("signup.html")
     ) {
-      const buttonBacker = document.querySelector(".dropdown-menu").children[0]; 
+      const buttonBacker = document.querySelector(".dropdown-menu").children[0];
       buttonBacker.addEventListener("click", () => {
         window.location.href = "campaigner.html";
       });
@@ -180,25 +178,20 @@ const displayCampaign = (data) => {
       }" value="${campaign.goal}"/>
     </div>
 
-    <div class="mb-3">
-      <label for="formFile-${
-        campaign.id
-      }" class="form-label fs-3">صورة المشروع</label>
-      <input class="form-control" type="file" id="formFile-${campaign.id}"/>
-    </div>
+   
     <div class="mb-3">
       <label for="country-${campaign.id}" class="form-label fs-3"
                         >الدولة</label
                       >
       <select class="form-select fs-3" id="country-${campaign.id}">
 
-                <option value="1" ${
+                <option value="مصر" ${
                   campaign.country === "مصر" ? "selected" : ""
                 }>مصر</option>
-                <option value="2" ${
+                <option value="السعوديه" ${
                   campaign.country === "السعوديه" ? "selected" : ""
                 }>السعوديه</option>
-                <option value="3" ${
+                <option value="فلسطين" ${
                   campaign.country === "فلسطين" ? "selected" : ""
                 }>فلسطين</option>
 
@@ -225,7 +218,7 @@ const displayCampaign = (data) => {
     </div>
     <button data-id="${
       campaign.id
-    }" type="button" class="btn btn-primary w-25 fs-3">تعديل</button>
+    }" type="button" class="btn btn-primary w-50 fs-3">تعديل</button>
   </form>
 `;
     }
@@ -235,25 +228,53 @@ const displayCampaign = (data) => {
 
 // form-edit
 
-const formEdit = () => {
+const formEdit = async () => {
   const formEdit = document.querySelectorAll(".form-edit");
   // console.log(formEdit);
   const user = JSON.parse(localStorage.getItem("user"));
-  // console.log(formEdit);
+  async function fetchAllData(type = "users", method = "GET") {
+    try {
+      const response = await fetch(`http://localhost:3000/${type}`, {
+        method: method,
+      });
+      if (!response.ok) throw new Error("Failed to fetch users");
+      return await response.json();
+    } catch (error) {
+      console.error("API Error:", error);
+      throw error;
+    }
+  }
+  const campaigns = await fetchAllData("campaigns");
+
   formEdit.forEach((form) => {
-    form.addEventListener("click", (e) => {
+    console.log(form);
+    const formButton = form.querySelector("button");
+    console.log(formButton);
+    formButton.addEventListener("click", (e) => {
       e.preventDefault();
       const campaignId = form.querySelector("button").dataset.id;
+      const existingCampaign = campaigns.find(
+        (campaign) => campaign.id === campaignId
+      );
       const formData = {
         title: form.querySelector(`#title-${campaignId}`).value,
         creatorId: user.id,
         goal: form.querySelector(`#goal-${campaignId}`).value,
-        campaignImage: form.querySelector(`#formFile-${campaignId}`).value,
         country: form.querySelector(`#country-${campaignId}`).value,
         category: form.querySelector(`#category-${campaignId}`).value,
         isApproved: false,
       };
-      updateDataInJson(formData, campaignId);
+
+      const updatedCampaign = {
+        ...existingCampaign,
+        goal: formData.goal,
+        title: formData.title,
+        country: formData.country,
+        category: formData.category,
+        isApproved: false,
+      };
+      console.log(updatedCampaign);
+      updateDataInJson(updatedCampaign, campaignId);
     });
   });
 };

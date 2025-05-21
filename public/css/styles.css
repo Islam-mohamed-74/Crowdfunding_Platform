@@ -625,6 +625,16 @@ a {
 
 /* ========================== end admin panel ========================= */
 
+/* // active class */
+.categories .active {
+  background-color: var(--bs-primary);
+  color: white;
+  transition: all 0.8s ease-in-out;
+}
+.categories {
+  transition: all 0.8s ease-in-out;
+}
+
 /* ============ ميديا كويري ============ */
 @media (max-width: 576px) {
   .navbar-brand img {
@@ -655,6 +665,10 @@ a {
   .partners .carousel-control-next {
     width: 4%;
   }
+  .categories button {
+    font-size: 30px !important;
+    width: 189px;
+  }
 }
 @media screen and (min-width: 992px) and (max-width: 1100px) {
   .navbar-brand img {
@@ -665,6 +679,24 @@ a {
     font-size: 22px !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+  }
+}
+
+@media (min-width: 992px) {
+  #body-campaigner {
+    margin: 0 238px 10px 0 !important;
+    .navbar {
+      margin-right: 8px !important;
+    }
+  }
+  #createProject {
+    margin-right: 15px !important;
+  }
+}
+@media (min-width: 576px) {
+  .modal {
+    --bs-modal-margin: -2.25rem;
+    --bs-modal-box-shadow: var(--bs-box-shadow);
   }
 }
 

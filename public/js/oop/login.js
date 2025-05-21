@@ -3,8 +3,11 @@
 // move to profile
 const moveToProfile = () => {
   const user = JSON.parse(localStorage.getItem("user")) || {};
-  if (user.role === "backer" &&  !window.location.href.includes("login.html") &&
-      !window.location.href.includes("signup.html") ) {
+  if (
+    user.role === "backer" &&
+    !window.location.href.includes("login.html") &&
+    !window.location.href.includes("signup.html")
+  ) {
     const buttonBacker = document.querySelector(".dropdown-menu").children[0];
     console.log(buttonBacker);
     buttonBacker.addEventListener("click", () => {
@@ -25,6 +28,14 @@ const moveToProfile = () => {
 };
 
 moveToProfile();
+
+// move to admi if role admin
+const moveToAdmin = () => {
+  const user = JSON.parse(localStorage.getItem("user")) || {};
+  if (user.role === "admin") {
+    window.location.href = "admin.html";
+  }
+};
 
 const form = document.querySelector("#login");
 // console.log(form);
@@ -67,6 +78,7 @@ const validateLogin = () => {
         localStorage.setItem("user", JSON.stringify(user));
         setTimeout(() => {
           window.location.href = "index.html";
+          moveToAdmin();
         }, 2000);
       } else {
         massege.textContent = "البريد الكتروني او كلمة المرور غير صحيحة";

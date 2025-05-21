@@ -1,3 +1,9 @@
+import {
+  fetchAllData,
+  updatedPledgeApi,
+  createdPledgeApi,
+} from "../services/api.js";
+
 const doc = {
   name: document.getElementById("floatingName"),
   campaigner: document.getElementById("floatingCampaign"),
@@ -82,85 +88,38 @@ checkLoggedIn();
 
 // create campaign in html
 
-const getDataCampain = () => {
-  fetch("http://localhost:3000/campaigns", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Success:", data);
-      createCrud(data);
-    })
-    .catch((error) => {
-      console.error("not response:", error);
-    });
-};
-
-getDataCampain();
-
 const createCrud = async (data) => {
   const cardContainer = document.querySelector(".container-crud");
   if (data.length) {
-    const campaignAprroved = data.filter((e) => e.isApproved === true);
-
-    // جلب الـ pledges من الـ API
-    const pledgesResponse = await fetch("http://localhost:3000/pledges", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const pledges = await pledgesResponse.json();
-
+    const pledgesResponse = fetchAllData("pledges");
+    const pledges = await pledgesResponse;
+    console.log(pledges);
     // يجيب الداتا بتاعت الويزر كلهم عشان اقدر احط اسم الؤسسه اللي انشات حمله
-
-    const usersResponse = await fetch("http://localhost:3000/users", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const users = await usersResponse.json();
-
-    if (campaignAprroved.length === 0) {
+    const usersResponse = fetchAllData("users", "GET");
+    const users = await usersResponse;
+    if (data.length === 0) {
       cardContainer.innerHTML = `<p class='text-center fs-4 fw-bold text-danger'> لا يوجد بيانات ليتم عرضها </p>`;
     } else {
       cardContainer.innerHTML = "";
-      campaignAprroved.forEach((element) => {
+      data.forEach((element) => {
         // كل حمله ليها عدد بليدج دي بتعمل فلتر لكل البليدج اللي عملو دعم للحمله
         const campaignPledges = pledges.filter(
           (p) => p.campaignId === element.id
         );
-        console.log(campaignPledges);
-
         // دي عشان تجيب المبلغ المتبقي
         const totalPledge = campaignPledges.reduce(
           (sum, p) => sum + p.amount,
           0
         );
         const remaining = element.goal - totalPledge;
-
-        console.log(totalPledge);
-
         // دي بتجيب المستخدمين اللي عملو دعم للحمله دي
         // نيو سيت عشان تمنع ان اليوزر يتكرر
         const uniqueDonors = [...new Set(campaignPledges.map((p) => p.userId))]
           .length;
         // فحص إذا كانت الحملة اكتملت
         const isCampaignComplete = totalPledge >= element.goal;
-
         // اسم المؤسسه اللي انشأت الكارد
         const campaignCreator = users.find((u) => u.id === element.creatorId);
-        console.log(campaignCreator);
-
         const campaignCreatorName = campaignCreator
           ? campaignCreator.campaigner
           : "Unknown Creator";
@@ -229,8 +188,7 @@ const createCrud = async (data) => {
                 </div>
                 <button
                   type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#supportModal"
+                
                   data-id="${element.id}"
                   class="btn bg-primary btn-campaign my-4 px-4 rounded-pill text-light fs-4 fw-semibold support-btn"
                   ${isCampaignComplete ? "disabled" : ""}
@@ -252,8 +210,18 @@ let currentCampaignId = null;
 // التقاط data-id عند الضغط على زر "ادعم الآن"
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains("support-btn")) {
+    e.preventDefault(); // منع السلوك الافتراضي
+    const user = JSON.parse(localStorage.getItem("user")) || {};
+    console.log("User role:", user.role);
+    if (!user || user.role !== "backer") {
+      alert("الدعم خاص بالمستخدمين المسجلين كداعمين فقط!");
+      return;
+    }
     currentCampaignId = e.target.getAttribute("data-id");
-    console.log("Current Campaign ID:", currentCampaignId); // للتصحيح
+    console.log("Current Campaign ID:", currentCampaignId);
+    // فتح المودال يدويًا
+    const modal = new bootstrap.Modal(document.getElementById("supportModal"));
+    modal.show();
   }
 });
 
@@ -263,169 +231,164 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("click", async function () {
       const amount = parseFloat(document.getElementById("supportAmount").value);
       const user = JSON.parse(localStorage.getItem("user"));
-
-      if (!user && user.role !== "backer") {
+      console.log(user.role);
+      if (user.role !== "backer") {
+        console.log("داعم");
         alert(" الدعم خاص بالمستخدمين المسجلين كداعمين فقط!");
         return;
       }
-
-      // if (!currentCampaignId) {
-      //   alert("لم يتم تحديد حملة! حاول مرة أخرى.");
-      //   console.error("currentCampaignId is null");
-      //   return;
-      // }
-
       if (isNaN(amount) || amount <= 0) {
         alert("من فضلك أدخل مبلغ صالح");
         return;
       }
-
-      const pledgesResponse = await fetch("http://localhost:3000/pledges", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const pledges = await pledgesResponse.json();
-
-      const campaignsResponse = await fetch("http://localhost:3000/campaigns", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const campaigns = await campaignsResponse.json();
+      const pledgesResponse = fetchAllData("pledges");
+      const pledges = await pledgesResponse;
+      const campaignsResponse = await fetchAllData("campaigns");
+      const campaigns = await campaignsResponse;
       const currentCampaign = campaigns.find(
         (c) => String(c.id) === String(currentCampaignId)
       );
-
-      // if (!currentCampaign) {
-      //   alert("الحملة غير موجودة!");
-      //   return;
-      // }
-
       // حساب إجمالي الدعم الحالي والمتبقي
       const campaignPledges = pledges.filter(
         (p) => String(p.campaignId) === String(currentCampaignId)
       );
       const totalPledge = campaignPledges.reduce((sum, p) => sum + p.amount, 0);
       const remaining = currentCampaign.goal - totalPledge;
-
       // التحقق من أن المبلغ لا يتجاوز المتبقي
       if (amount > remaining) {
         alert(`لا يمكنك دعم أكثر من ${remaining} دولار المتبقية!`);
         return;
-      }
-
-      // بتاكد من وجود دعم من نفس المستخدم لهذه الحملة
-      const existingPledge = pledges.find(
-        (p) =>
-          String(p.campaignId) === String(currentCampaignId) &&
-          String(p.userId) === String(user.id)
-      );
-      // الفاريبول دا عشان اتحكم في عدد الداعمين
-
-      let isNewDonor = false;
-
-      if (existingPledge) {
-        // تحديث الـ pledge القديم
-        const updatedPledge = {
-          ...existingPledge,
-          amount: existingPledge.amount + amount, // إضافة المبلغ الجديد
-        };
-
-        await fetch(`http://localhost:3000/pledges/${existingPledge.id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(updatedPledge),
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("فشل في تحديث الدعم");
-            }
-            return response.json();
-          })
-          .then(() => {
-            // تحديث الـ UI
-            updateUI(amount, isNewDonor);
-          })
-          .catch((error) => {
-            console.error("Error updating pledge:", error);
-            alert("حدث خطأ أثناء تحديث الدعم.");
-          });
       } else {
-        // إنشاء بليدج جديد
-        const newPledge = {
-          campaignId: currentCampaignId,
-          userId: user.id,
-          amount: amount,
-        };
-
-        await fetch("http://localhost:3000/pledges", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newPledge),
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("فشل في تسجيل الدعم");
-            }
-            return response.json();
-          })
-          .then(() => {
-            isNewDonor = true;
-            // تحديث الـ UI
-            updateUI(amount, isNewDonor);
-          })
-          .catch((error) => {
-            console.error("Error saving pledge:", error);
-            alert("حدث خطأ أثناء تسجيل الدعم.");
-          });
-      }
-
-      // دالة لتحديث الـ UI
-      function updateUI(amount, isNewDonor) {
-        const allCards = document.querySelectorAll(".cards");
-        allCards.forEach((card) => {
-          const button = card.querySelector(".support-btn");
-          if (
-            String(button.getAttribute("data-id")) === String(currentCampaignId)
-          ) {
-            const supportEl = card.querySelector(".card-body .pledge");
-            const donorsEl = card.querySelector(".card-body .donors-count");
-            const goalEl = card.querySelector(".card-body .goal");
-            const leftEl = card.querySelector(".card-body .leftPledge");
-            const percentEl = card.querySelector(".card-body .percent");
-            const processEl = card.querySelector(".card-body .process");
-
-            const oldAmount = parseFloat(supportEl.textContent) || 0;
-            const oldDonors = parseInt(donorsEl.textContent) || 0;
-            const goal = parseFloat(goalEl.textContent);
-            const newTotal = oldAmount + amount;
-            const newRemaining = goal - newTotal;
-
-            supportEl.textContent = newTotal;
-            donorsEl.textContent = isNewDonor ? oldDonors + 1 : oldDonors; // زيادة عدد الداعمين فقط لو يوزر جديد
-            leftEl.textContent = newRemaining > 0 ? newRemaining : 0;
-            percentEl.textContent = `${Math.round((newTotal / goal) * 100)}%`;
-            processEl.style.width = `${(newTotal / goal) * 100}%`;
-
-            if (newTotal >= goal) {
-              button.disabled = true;
-              button.textContent = "الحملة مكتملة";
-            }
-          }
-        });
-
-        // إغلاق المودال
-        const modal = bootstrap.Modal.getInstance(
-          document.getElementById("supportModal")
+        // بتاكد من وجود دعم من نفس المستخدم لهذه الحملة
+        const existingPledge = pledges.find(
+          (p) =>
+            String(p.campaignId) === String(currentCampaignId) &&
+            String(p.userId) === String(user.id)
         );
-        modal.hide();
+        // الفاريبول دا عشان اتحكم في عدد الداعمين
+        let isNewDonor = false;
+        if (existingPledge) {
+          // تحديث الـ pledge القديم
+          const updatedPledge = {
+            ...existingPledge,
+            amount: existingPledge.amount + amount, // إضافة المبلغ الجديد
+          };
+          try {
+            await updatedPledgeApi(existingPledge.id, updatedPledge);
+            updateUI(amount, isNewDonor);
+          } catch (error) {
+            throw error;
+          }
+        } else {
+          // إنشاء بليدج جديد
+          const newPledge = {
+            campaignId: currentCampaignId,
+            userId: user.id,
+            amount: amount,
+          };
+          try {
+            await createdPledgeApi(newPledge);
+            isNewDonor = true;
+            updateUI(amount, isNewDonor);
+          } catch (error) {
+            throw error;
+          }
+        }
+
+        // دالة لتحديث الـ UI
+        function updateUI(amount, isNewDonor) {
+          const allCards = document.querySelectorAll(".cards");
+          allCards.forEach((card) => {
+            const button = card.querySelector(".support-btn");
+            if (
+              String(button.getAttribute("data-id")) ===
+              String(currentCampaignId)
+            ) {
+              const supportEl = card.querySelector(".card-body .pledge");
+              const donorsEl = card.querySelector(".card-body .donors-count");
+              const goalEl = card.querySelector(".card-body .goal");
+              const leftEl = card.querySelector(".card-body .leftPledge");
+              const percentEl = card.querySelector(".card-body .percent");
+              const processEl = card.querySelector(".card-body .process");
+
+              const oldAmount = parseFloat(supportEl.textContent) || 0;
+              const oldDonors = parseInt(donorsEl.textContent) || 0;
+              const goal = parseFloat(goalEl.textContent);
+              const newTotal = oldAmount + amount;
+              const newRemaining = goal - newTotal;
+
+              supportEl.textContent = newTotal;
+              donorsEl.textContent = isNewDonor ? oldDonors + 1 : oldDonors; // زيادة عدد الداعمين فقط لو يوزر جديد
+              leftEl.textContent = newRemaining > 0 ? newRemaining : 0;
+              percentEl.textContent = `${Math.round((newTotal / goal) * 100)}%`;
+              processEl.style.width = `${(newTotal / goal) * 100}%`;
+
+              if (newTotal >= goal) {
+                button.disabled = true;
+                button.textContent = "الحملة مكتملة";
+              }
+            }
+          });
+
+          // إغلاق المودال
+          const modal = bootstrap.Modal.getInstance(
+            document.getElementById("supportModal")
+          );
+          modal.hide();
+        }
       }
     });
 });
+
+// category filter
+
+const categoryFilter = async () => {
+  const response = await fetchAllData("campaigns");
+  const data = await response;
+  const campaignAprrovedAll = data.filter((e) => e.isApproved === true);
+  console.log(campaignAprrovedAll);
+  const healthTap = campaignAprrovedAll.filter((e) => e.category === "الصحه");
+  const educationTap = campaignAprrovedAll.filter(
+    (e) => e.category === "التعليم والتدريب"
+  );
+  const nutritionTap = campaignAprrovedAll.filter(
+    (e) => e.category === "الامن الغذائي"
+  );
+  const welfareTap = campaignAprrovedAll.filter(
+    (e) => e.category === "التنميه المستدامه"
+  );
+  const category = document.querySelectorAll(".categories button");
+  console.log(category);
+
+  category[0].addEventListener("click", () => {
+    createCrud(campaignAprrovedAll);
+  });
+  category[1].addEventListener("click", () => {
+    createCrud(healthTap);
+  });
+  category[2].addEventListener("click", () => {
+    createCrud(educationTap);
+  });
+  category[3].addEventListener("click", () => {
+    createCrud(nutritionTap);
+    console.log(nutritionTap);
+  });
+  category[4].addEventListener("click", () => {
+    createCrud(welfareTap);
+  });
+
+  if (category[0].classList.contains("active")) {
+    createCrud(campaignAprrovedAll);
+  }
+
+  category.forEach((e) => {
+    e.addEventListener("click", () => {
+      category.forEach((e) => {
+        e.classList.remove("active");
+      });
+      e.classList.add("active");
+    });
+  });
+};
+
+categoryFilter();
