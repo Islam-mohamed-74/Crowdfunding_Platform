@@ -1,4 +1,4 @@
-import fetchData, { getUsers, updateUser } from "../../services/api.js";
+import  { getUsers, updateUser } from "../../services/api.js";
 
 export const tableBody = document.getElementById("users-table-body");
 const filterCheckbox = document.getElementById("pending-campaigners-filter");
