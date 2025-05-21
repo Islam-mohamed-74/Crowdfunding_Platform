@@ -18,14 +18,13 @@
     />
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/styles.css" />
-
     <script src="./js/bootstrap.bundle.min.js"></script>
     <title>Tasharuky</title>
   </head>
   <body dir="rtl">
     <div class="main d-flex align-items-start vh-100" style="width: 100%">
       <div
-        class="d-none d-lg-block h-100 bg-body shadow p-4"
+        class="d-none d-lg-block h-100 position-fixed z-2 bg-body shadow p-4"
         style="width: 240px"
       >
         <div class="">
@@ -87,7 +86,10 @@
           </form>
         </div>
       </div>
-      <div class="body-container mx-auto w-75">
+      <div
+        id="body-campaigner"
+        class="body-container mx-auto d-flex flex-column flex-start w-75"
+      >
         <nav
           class="navbar bg-body-tertiary shadow mx-auto mt-4 m-lg-1 w-100 w-lg-75 mb-4"
         >
@@ -218,6 +220,7 @@
               class="btn btn-primary fs-3 fw-semibold my-4"
               data-bs-toggle="modal"
               data-bs-target="#createProjectModal"
+              id="createProject"
             >
               انشاء مشروع
             </button>
@@ -229,8 +232,9 @@
             tabindex="-1"
             aria-labelledby="createProjectModalLabel"
             aria-hidden="true"
+            style="scale: 0.9"
           >
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered" style="scale: 0.9">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title fs-3" id="createProjectModalLabel">
@@ -314,6 +318,6 @@
         </div>
       </div>
     </div>
-    <script src="./js/oop/campaigner.js"></script>
+    <script src="./js/oop/campaigner.js" type="module"></script>
   </body>
 </html>
