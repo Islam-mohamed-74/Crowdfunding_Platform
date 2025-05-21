@@ -17,12 +17,22 @@
 </head>
 
 <body>
-    <main class="d-flex bg-light admin">
-        <aside class="sidebar shadow-sm border-end bg-white">
-            <div class="brand-logo d-flex justify-content-center my-4">
+    <main class="bg-light admin">
+        <aside class="sidebar shadow-sm border-end bg-white " id="sidebar">
+            <div id="brand-sidebar" class="brand-logo d-flex  justify-content-center gap-1 my-4">
                 <a class="navbar-brand" href="#">
-                    <img src="./assets/images/logo.webp" alt="Tasharuky-logo" width="200" />
+                    <img src="./assets/images/logo.webp" alt="Tasharuky-logo" width="150" />
                 </a>
+
+                <button id="" class="btn-sidebar border-0 rounded-circle">
+                    <svg class="m-auto h-5 w-5" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 19L7 12L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path opacity="0.5" d="M16.9998 19L10.9998 12L16.9998 5" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
             </div>
             <div class="content-sidebar">
                 <div class="container">
@@ -42,26 +52,36 @@
             <header class="head p-2">
                 <div class="shadow-lg">
                     <div class="content-header p-3 d-flex justify-content-between align-items-center">
-                        <div class="back-home d-flex align-items-center gap-2">
-                            <div class="brand-logo d-flex gap-2">
+                        <div class="back-home d-flex align-items-center gap-4">
+                            <div id="brand-header" class="brand-logo-header d-flex align-items-center  gap-2">
                                 <a class="navbar-brand" href="#">
-                                    <img src="./assets/images/logo.webp" alt="Tasharuky-logo" width="200" />
+                                    <img src="./assets/images/logo.webp" alt="Tasharuky-logo" width="150" />
                                 </a>
-                                <button class="btn-sidebar border-0 px-2 rounded-circle">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M20 7L4 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-                                    </path>
-                                    <path opacity="0.5" d="M20 12L4 12" stroke="currentColor" stroke-width="1.5"
-                                        stroke-linecap="round"></path>
-                                    <path d="M20 17L4 17" stroke="currentColor" stroke-width="1.5"
+                                <button id="btnSidebar" class="btn-sidebar border-0 rounded-circle">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 7L4 7" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round">
+                                        </path>
+                                        <path opacity="0.5" d="M20 12L4 12" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round"></path>
+                                        <path d="M20 17L4 17" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round"></path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <a href="index.html"
+                                class="text-decoration-none text-dark d-flex align-items-center gap-2 icon-link-hover back-home">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ltr:mr-2 rtl:ml-2">
+                                    <path opacity="0.5"
+                                        d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z"
+                                        stroke="currentColor" stroke-width="1.5"></path>
+                                    <path d="M12 15L12 18" stroke="currentColor" stroke-width="1.5"
                                         stroke-linecap="round"></path>
                                 </svg>
-                            </button>
-                            </div>
-                            
-                            <a href="#" class="text-decoration-none text-dark">
-                                <i class="fa-solid fa-house"></i> Back to home
+                                <span class="fs-6">Back to home</span>
                             </a>
                         </div>
 
@@ -159,7 +179,6 @@
                                     <th>Campaign</th>
                                     <th>User</th>
                                     <th>Amount</th>
-                                    <th>Reward</th>
                                 </tr>
                             </thead>
                             <tbody id="pledges-table-body">
@@ -182,18 +201,7 @@
         </div>
     </main>
 
-    <!-- <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2 id="modal-title"></h2>
-            <div id="modal-body"></div>
-            <div class="modal-footer">
-                <button id="modal-cancel" class="button secondary">Cancel</button>
-                <button id="modal-confirm" class="button primary">Confirm</button>
-            </div>
-        </div>
-    </div> -->
-
+    <script src="./js/oop/managers/custom.js"></script>
     <script src="./js/oop/managers/user-manager.js" type="module"></script>
     <script src="./js/oop/managers/campaign-manager.js" type="module"></script>
     <script src="./js/oop/managers/pledge-manager.js" type="module"></script>

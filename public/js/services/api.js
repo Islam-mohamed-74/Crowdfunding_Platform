@@ -86,3 +86,53 @@ export async function deleteCampaign(campaignId) {
     throw error;
   }
 }
+
+
+
+
+
+export default async function fetchData(endpoint, method = "GET", body = null, headers = {}) {
+  const options = {
+    method,
+    headers: {
+      // فقط أضف Content-Type إذا كان فيه body وكان JSON
+      ...(body && { "Content-Type": "application/json" }),
+      ...headers, // دعم headers إضافية
+    },
+  };
+
+  if (body) {
+    options.body = typeof body === "string" ? body : JSON.stringify(body);
+  }
+
+  try {
+    const response = await fetch(apiUrl+`/${endpoint}`, options);
+
+    if (!response.ok) {
+      // حاول قراءة رسالة الخطأ من الـ response body
+      let errorMessage = `HTTP error! status: ${response.status}`;
+      try {
+        const errorData = await response.json();
+        errorMessage = errorData.message || JSON.stringify(errorData);
+      } catch (e) {
+        // إذا فشل تحليل الـ JSON، استخدم الرسالة الافتراضية
+      }
+      throw new Error(errorMessage);
+    }
+
+    // إذا كان الـ status 204، ارجع null
+    if (response.status === 204) {
+      return null;
+    }
+
+    // حاول تحليل الـ JSON، لكن لو فشل، ارجع الـ response كـ text
+    try {
+      return await response.json();
+    } catch (e) {
+      return await response.text();
+    }
+  } catch (error) {
+    console.error("Fetch error:", error);
+    throw error;
+  }
+}

@@ -445,17 +445,36 @@ a {
 
 /* ========================== start admin panel ========================= */
 
-.admin .sidebar {
-  min-width: 25%;
+.btn-sidebar {
+  width: 40px;
+  height: 40px;
+}
+
+#sidebar {
   height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f8f9fa; 
+  border-right: 1px solid #ddd;
+  width: 0;
+  transition: width 0.3s;
+  overflow: hidden;
+  z-index: 2;
 }
-
+#sidebar.show {
+  width: 300px;
+}
 .admin .content-page {
-  width: 75% ;
+  padding: 1rem; 
+  margin-left: 60px;
+  transition: margin-right 0.3s;
 }
-
+.sidebar.open ~ .admin .content-page {
+  margin-left: 300px;
+}
 .admin .content-page-body {
-  width: 90%;
+  width: 95%;
 }
 
 .admin .tab-content {
@@ -596,6 +615,10 @@ a {
   color: #0c5460;
 }
 
+.back-home:hover {
+  color: #822a21 !important;
+}
+
 .admin .prev-next-count .button.btn-prev:hover,
 .admin .prev-next-count .button.btn-next:hover {
 }
@@ -617,7 +640,7 @@ a {
     height: 160px;
   }
   .admin .sidebar .brand-logo img {
-    width: 120px;
+    width: 100px;
   }
 }
 @media (max-width: 768px) {
@@ -626,12 +649,6 @@ a {
   }
 }
 @media (max-width: 992px) {
-  .admin .sidebar {
-    display: none;
-  }
-  .admin .content-page {
-  width: 100% ;
-}
 }
 @media (min-width: 767px) {
   .partners .carousel-control-prev,

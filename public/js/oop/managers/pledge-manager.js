@@ -2,14 +2,12 @@ import { getCampaigns, getPledges, getUsers } from "../../services/api.js";
 
 const pledgesBody = document.getElementById("pledges-table-body");
 
-const countUsers = document.querySelector(".count-users");
-const btnGroup = document.querySelector(".btn-group-users");
-const btnPrev = document.querySelector(".btn-group-users .btn-prev");
-const btnNext = document.querySelector(".btn-group-users .btn-next");
+const countPledges = document.querySelector(".count-Pledges");
+const btnGroup = document.querySelector(".btn-group-Pledges");
+const btnPrev = document.querySelector(".btn-group-Pledges .btn-prev");
+const btnNext = document.querySelector(".btn-group-Pledges .btn-next");
 let currentPage = 1;
-const countUsersPage = 4;
-
-
+const countPledgesPage = 4;
 
 let pledges = [];
 let campaigns = [];
@@ -33,7 +31,7 @@ async function loadPledges() {
     }
     pledges = dataPledges;
     campaigns = dataCampaigns;
-    users = dataUsers;
+    users = dataUsers; 
 
     renderPledges();
   } catch (error) {
@@ -44,41 +42,38 @@ async function loadPledges() {
 
 function renderPledges() {
   const tableBody = document.getElementById("pledges-table-body");
+
+
+  if (!pledges.length) {
+    tableBody.innerHTML = `<tr><td colspan="6">No pledges found</td></tr>`;
+    return;
+  }
+
+
   tableBody.innerHTML = "";
 
-  let start = (currentPage - 1) * countUsersPage;
-  let end = start + countUsersPage;
-  let currentData = userList.slice(start, end);
-  console.log(currentData);
+  let start = (currentPage - 1) * countPledgesPage;
+  let end = start + countPledgesPage;
+  let currentData = pledges.slice(start, end); 
 
-  pledges.forEach((pledge) => {
+  currentData.forEach((pledge) => {
     const row = document.createElement("tr");
-
     // Find campaign and user
-    const campaign = campaigns.find((c) => c.id === pledge.campaignId);
+    const campaign = campaigns.find((c) => c.id === pledge.campaignId); 
     const user = users.find((u) => u.id === pledge.userId);
 
-    // Find reward
-    let rewardTitle = "No reward";
-    if (campaign && pledge.rewardId) {
-      const reward = campaign.rewards.find((r) => r.id === pledge.rewardId);
-      if (reward) {
-        rewardTitle = `${reward.title} ($${reward.amount})`;
-      }
-    }
 
     row.innerHTML = `
         <td>${pledge.id}</td>
         <td>${campaign ? campaign.title : "Unknown Campaign"}</td>
         <td>${user ? user.name : "Unknown User"}</td>
-        <td>$${pledge.amount.toLocaleString()}</td>
-        <td>${rewardTitle}</td>
+        <td>$${pledge.amount.toLocaleString()}</td> 
       `;
 
     tableBody.appendChild(row);
   });
 
-  if (users.length <= countUsersPage) {
+  if (pledges.length <= countPledgesPage) {
     btnGroup.style.display = "none";
   } else {
     btnGroup.style.display = "block";
@@ -89,32 +84,32 @@ function renderPledges() {
 }
 
 function updateCounter() {
-  countUsers.textContent =
-    users.length === 0
+  countPledges.textContent =
+    pledges.length === 0
       ? "No users to show"
       : `showing from  ${Math.min(
-          (currentPage - 1) * countUsersPage + 1,
-          users.length
-        )}  to ${Math.min(currentPage * countUsersPage, users.length)} of ${
-          users.length
+          (currentPage - 1) * countPledgesPage + 1,
+          pledges.length
+        )}  to ${Math.min(currentPage * countPledgesPage, pledges.length)} of ${
+          pledges.length
         }`;
 }
 
 function updatePaginationButtons() {
   btnPrev.disabled = currentPage === 1;
-  btnNext.disabled = currentPage * countUsersPage >= users.length;
+  btnNext.disabled = currentPage * countPledgesPage >= pledges.length;
 }
 
 btnPrev.addEventListener("click", function () {
   if (currentPage > 1) {
     currentPage--;
-    renderUsers();
+    renderPledges();
   }
 });
 btnNext.addEventListener("click", function () {
-  if (currentPage < users.length / countUsersPage) {
+  if (currentPage < pledges.length / countPledgesPage) {
     currentPage++;
-    renderUsers();
+    renderPledges();
   }
 });
 

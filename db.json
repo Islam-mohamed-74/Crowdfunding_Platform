@@ -15,7 +15,7 @@
       "campaigner": "مؤسسة المستقبل",
       "email": "pedri@gmail.com",
       "password": "Islam2",
-      "isActive": false,
+      "isActive": true,
       "role": "campaigner"
     },
     {
@@ -24,7 +24,7 @@
       "campaigner": "Refaei",
       "email": "noohmohamed1999@gmail.com",
       "password": "321987654",
-      "isActive": true,
+      "isActive": false,
       "role": "backer"
     },
     {

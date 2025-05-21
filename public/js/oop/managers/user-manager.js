@@ -1,34 +1,18 @@
-import { getUsers, updateUser } from "../../services/api.js";
+import fetchData, { getUsers, updateUser } from "../../services/api.js";
 
-const tableBody = document.getElementById("users-table-body");
+export const tableBody = document.getElementById("users-table-body");
 const filterCheckbox = document.getElementById("pending-campaigners-filter");
 
-const countUsers = document.querySelector(".count-Pledges");
-const btnGroup = document.querySelector(".btn-group-Pledges");
-const btnPrev = document.querySelector(".btn-group-Pledges .btn-prev");
-const btnNext = document.querySelector(".btn-group-Pledges .btn-next");
+const countUsers = document.querySelector(".count-users");
+const btnGroup = document.querySelector(".btn-group-users");
+const btnPrev = document.querySelector(".btn-group-users .btn-prev");
+const btnNext = document.querySelector(".btn-group-users .btn-next");
 let currentPage = 1;
-const countUsersPage = 4;
-
-const tabButtons = document.querySelectorAll(".tab-button");
-const tabContents = document.querySelectorAll(".tab-content");
-
-tabButtons.forEach((button) => {
-  button.addEventListener("click", function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    tabButtons.forEach((btn) => btn.classList.remove("active"));
-    this.classList.add("active");
-    tabContents.forEach((content) => content.classList.remove("active"));
-    const targetId = this.id.replace("-tab", "-section");
-    document.getElementById(targetId).classList.add("active");
-  });
-});
-
-// ========== Original Schema Data ==========
+const countUsersPage = 2;
 
 // GET
+
+// console.log(fetchData("users",));
 
 let users = [];
 
@@ -64,7 +48,6 @@ function renderUsers() {
   let start = (currentPage - 1) * countUsersPage;
   let end = start + countUsersPage;
   let currentData = userList.slice(start, end);
-  console.log(currentData);
 
   currentData.forEach((user) => {
     const row = document.createElement("tr");
@@ -114,7 +97,6 @@ function handleUserActionClick(e) {
     e.stopPropagation();
     const action = e.target.dataset.action;
     const userId = e.target.dataset.id;
-    console.log(users.role);
 
     switch (action) {
       case "approve-campaigner":
@@ -136,7 +118,6 @@ function handleUserActionClick(e) {
 
 async function handleUserUpdate(userId, updates, action) {
   try {
-    console.log(userId);
     const user = users.find((u) => u.id === userId);
 
     if (!user) {
@@ -160,10 +141,9 @@ function updateCounter() {
       : `showing from  ${Math.min(
           (currentPage - 1) * countUsersPage + 1,
           users.length
-        )}  to ${Math.min(
-          currentPage * countUsersPage,
+        )}  to ${Math.min(currentPage * countUsersPage, users.length)} of ${
           users.length
-        )} of ${users.length}`;
+        }`;
 }
 
 function updatePaginationButtons() {
@@ -174,13 +154,13 @@ function updatePaginationButtons() {
 btnPrev.addEventListener("click", function () {
   if (currentPage > 1) {
     currentPage--;
-    renderUsers()
+    renderUsers();
   }
 });
-btnNext.addEventListener("click", function () { 
+btnNext.addEventListener("click", function () {
   if (currentPage < users.length / countUsersPage) {
     currentPage++;
-    renderUsers()
+    renderUsers();
   }
 });
 
