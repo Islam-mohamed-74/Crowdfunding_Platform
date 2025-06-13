@@ -22,4 +22,4 @@ Run JSON Server: npx json-server-auth db.json
 Run the app: Open public/index.html in a browser or use a local server (e.g., live-server)
 
 Live Demo
-View Live Demo
+View Live Demo https://islam-mohamed-74.github.io/Crowdfunding_Platform/public/index.html
