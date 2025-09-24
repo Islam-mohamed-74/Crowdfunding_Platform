@@ -1,10 +1,10 @@
 Crowdfunding Platform
 A web application for managing crowdfunding campaigns with role-based authentication (Admin, Creator, Backer).
 Technologies
-
 JavaScript (Vanilla)
 Bootstrap
 JSON Server
+![preview](./image.jpg)
 
 Features
 
